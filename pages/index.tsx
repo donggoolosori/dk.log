@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { getSortedPostsData, PostData } from '../lib/posts';
-import Layout from '../components/layout';
+import { getSortedPostsData, PostData } from '@lib/posts';
+import Layout from '@components/layout';
 
 interface Props {
   allPostsData: PostData[];
