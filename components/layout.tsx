@@ -1,8 +1,14 @@
+import { NextComponentType, NextPage } from 'next';
 import Head from 'next/head';
+import React from 'react';
 
 const siteTitle = 'dk blog';
 
-function Layout({ children }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+function Layout({ children }: LayoutProps) {
   return (
     <div>
       <Head>
