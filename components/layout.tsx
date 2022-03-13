@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import React from 'react';
 
 const siteTitle = 'dk blog';
 
@@ -7,7 +6,7 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <Head>
@@ -21,5 +20,3 @@ function Layout({ children }: LayoutProps) {
     </div>
   );
 }
-
-export default Layout;

@@ -6,7 +6,7 @@ interface Props {
   allPostsData: PostData[];
 }
 
-const Home: NextPage<Props> = ({ allPostsData }) => {
+export default function Home({ allPostsData }: Props) {
   return (
     <Layout>
       <ul>
@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
       </ul>
     </Layout>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -33,5 +33,3 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
-
-export default Home;

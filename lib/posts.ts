@@ -45,3 +45,15 @@ export function getAllPostIds() {
     };
   });
 }
+
+export function getPostData(id: string) {
+  const fullPath = path.join(postsDir, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+  const matterResult = matter(fileContents);
+
+  return {
+    id,
+    ...matterResult.data,
+  };
+}
