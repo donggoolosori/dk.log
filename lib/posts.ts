@@ -8,6 +8,7 @@ export interface PostData {
   id: string;
   title: string;
   date: string;
+  contentHtml?: string;
 }
 
 const postsDir = path.join(process.cwd(), 'posts');
