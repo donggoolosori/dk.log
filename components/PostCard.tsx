@@ -8,11 +8,14 @@ interface Props {
 
 export default function PostCard({ id, title, date }: Props) {
   return (
-    <div>
-      <Link href={`/posts/${id}`}>
-        <a className="font-bold">{title}</a>
-      </Link>
-      <h3>{date}</h3>
-    </div>
+    <Link href={`/posts/${id}`}>
+      <a className="flex flex-col gap-2 justify-between border-2 rounded-lg w-2/5 h-36 p-4">
+        <h1 className="font-bold text-2xl">{title}</h1>
+
+        <h3 className="text-sm">
+          <p className="italic font-thin">{date}</p>
+        </h3>
+      </a>
+    </Link>
   );
 }

@@ -1,8 +1,7 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 import { getSortedPostsData, PostData } from '@lib/posts';
 import Layout from '@components/layout';
-import Link from 'next/link';
-import PostCard from '@components/PostCard';
+import PostCardList from '@components/PostCardList';
 
 interface Props {
   allPostsData: PostData[];
@@ -11,11 +10,7 @@ interface Props {
 export default function Home({ allPostsData }: Props) {
   return (
     <Layout>
-      <ul>
-        {allPostsData.map(({ id, title, date }) => (
-          <PostCard key={id} id={id} title={title} date={date} />
-        ))}
-      </ul>
+      <PostCardList allPostsData={allPostsData} />
     </Layout>
   );
 }
