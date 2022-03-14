@@ -1,6 +1,7 @@
 import Layout from '@components/layout';
 import { getAllPostIds, getPostData, PostData } from '@lib/posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 interface Props {
   postData: PostData;
@@ -9,6 +10,9 @@ interface Props {
 export default function Post({ postData }: Props) {
   return (
     <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
       {postData.id}
       <br />
       {postData.title}
