@@ -13,9 +13,7 @@ export default function Post({ postData }: Props) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      {postData.id}
-      <br />
-      {postData.title}
+      <h1 className="text-3xl">{postData.title}</h1>
       <br />
       {postData.date}
       <br />
