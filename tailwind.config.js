@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         fredoka: ['Fredoka', 'sans-serif'],
       },
+      spacing: {
+        100: '25rem',
+      },
     },
   },
   plugins: [],
