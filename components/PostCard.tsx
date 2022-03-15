@@ -11,8 +11,8 @@ interface Props {
 export default function PostCard({ id, title, date, coverImg }: Props) {
   return (
     <Link href={`/posts/${id}`}>
-      <a className="w-100 h-96">
-        <div className="flex flex-col gap-2 justify-evenly h-full w-full relative p-10 text-slate-50">
+      <a className="w-100 h-96 rounded-3xl">
+        <div className="flex flex-col gap-2 justify-evenly h-full w-full relative p-10 text-slate-50 hover:-translate-y-2 transition-transform duration-300">
           <Image
             src={coverImg}
             alt="cover-image"
