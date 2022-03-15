@@ -1,6 +1,6 @@
 ---
-title: 'When to Use Static Generation v.s. Server-side Rendering'
-date: '2020-01-02'
+title: 'Next js is awesome'
+date: '2021-01-02'
 coverImg: '/images/post/home-bg.jpg'
 ---
 
