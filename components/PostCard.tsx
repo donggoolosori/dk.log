@@ -18,12 +18,14 @@ export default function PostCard({ id, title, date, coverImg }: Props) {
             alt="cover-image"
             layout="fill"
             objectFit="cover"
-            className="-z-10 brightness-75 rounded-3xl"
+            className="brightness-75 rounded-3xl"
           />
-          <h1 className="font-bold text-3xl">{title}</h1>
-          <h3 className="text-sm">
-            <p className="italic font-thin">{date}</p>
-          </h3>
+          <section className="z-10 w-full h-full flex flex-col justify-evenly">
+            <h1 className="font-bold text-3xl">{title}</h1>
+            <h3 className="text-sm">
+              <p className="italic font-thin">{date}</p>
+            </h3>
+          </section>
         </div>
       </a>
     </Link>
