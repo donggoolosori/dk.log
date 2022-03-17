@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { getPlaiceholder } from 'plaiceholder';
 
 export interface PostData {
   id: string;
@@ -10,14 +11,15 @@ export interface PostData {
   date: string;
   coverImg: string;
   contentHtml?: string;
+  blurCss?: any;
 }
 
 const postsDir = path.join(process.cwd(), 'posts');
 
-export function getSortedPostsData(): PostData[] {
+export async function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDir);
 
-  const allPostsData: PostData[] = fileNames.map((fileName) => {
+  const promises: Promise<PostData>[] = fileNames.map(async (fileName) => {
     const id = fileName.replace(/\.md$/, '');
 
     const filePath = path.join(postsDir, fileName);
@@ -26,13 +28,18 @@ export function getSortedPostsData(): PostData[] {
     const matterResult = matter(fileContent);
     const { title, date, coverImg } = matterResult.data;
 
+    const { css } = await getPlaiceholder(coverImg);
+
     return {
       id,
       title,
       date,
       coverImg,
+      blurCss: css,
     };
   });
+
+  const allPostsData = await Promise.all(promises);
 
   return allPostsData.sort(({ date: a }, { date: b }) => {
     return +new Date(b) - +new Date(a);
