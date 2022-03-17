@@ -4,11 +4,21 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { getPlaiceholder } from 'plaiceholder';
+import { getRandomDefaultImage } from './image';
+
+export interface PostMetaData {
+  id: string;
+  title: string;
+  date: string;
+  description: string;
+  coverImg: string;
+}
 
 export interface PostData {
   id: string;
   title: string;
   date: string;
+  description: string;
   coverImg: string;
   contentHtml?: string;
   blurCss?: any;
@@ -26,7 +36,12 @@ export async function getSortedPostsData() {
     const fileContent = fs.readFileSync(filePath, 'utf-8');
 
     const matterResult = matter(fileContent);
-    const { title, date, coverImg } = matterResult.data;
+
+    const { title, date } = matterResult.data;
+
+    let { coverImg, description } = matterResult.data;
+    description = description || '';
+    coverImg = coverImg || getRandomDefaultImage();
 
     const { css } = await getPlaiceholder(coverImg);
 
@@ -35,6 +50,7 @@ export async function getSortedPostsData() {
       title,
       date,
       coverImg,
+      description,
       blurCss: css,
     };
   });
