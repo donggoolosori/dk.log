@@ -5,6 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { getPlaiceholder } from 'plaiceholder';
 import { getRandomDefaultImage } from './image';
+import { formatDate } from './utils/formatDate';
 
 export interface PostMetaData {
   id: string;
@@ -37,9 +38,10 @@ export async function getSortedPostsData() {
 
     const matterResult = matter(fileContent);
 
-    const { title, date } = matterResult.data;
+    const { title } = matterResult.data;
 
-    let { coverImg, description } = matterResult.data;
+    let { date, coverImg, description } = matterResult.data;
+    date = formatDate(date);
     description = description || '';
     coverImg = coverImg || getRandomDefaultImage();
 
