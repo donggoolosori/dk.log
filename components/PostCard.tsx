@@ -41,10 +41,12 @@ export default function PostCard({
             />
           </div>
 
-          <section className="z-10 w-full h-full flex flex-col justify-start mt-28">
-            <h1 className="font-bold text-2xl flex-grow">{title}</h1>
-            <p className="text-xl font-thin flex-grow">{description}</p>
-            <span className="text-base italic font-thin">{date}</span>
+          <section className="z-10 w-full h-3/5 flex flex-col justify-between mt-28">
+            <h1 className="font-bold text-2xl w-full line-clamp-2">{title}</h1>
+            <p className="text-xl font-thin w-full line-clamp-2">
+              {description}
+            </p>
+            <span className="text-base italic font-thin h-1/5">{date}</span>
           </section>
         </div>
       </a>
