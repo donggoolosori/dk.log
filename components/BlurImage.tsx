@@ -8,7 +8,7 @@ export default function BlurImage({ blurCss }: Props) {
         filter: 'blur(40px)',
         ...blurCss,
       }}
-      className="w-full h-full"
+      className="scale-150 w-full h-full"
     />
   );
 }

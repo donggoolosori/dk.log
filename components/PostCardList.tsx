@@ -7,7 +7,7 @@ interface Props {
 
 export default function PostCardList({ allPostsData }: Props) {
   return (
-    <div className="flex flex-wrap gap-5 justify-center content-center">
+    <div className="flex flex-wrap gap-6 p-6">
       {allPostsData.map((props) => (
         <PostCard key={props.id} {...props} />
       ))}
