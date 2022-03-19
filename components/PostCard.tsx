@@ -15,7 +15,7 @@ export default function PostCard({
 }: Props) {
   return (
     <Link href={`/posts/${id}`}>
-      <a className="h-80 min-w-full sm:min-w-[40%] lg:min-w-[30%] lg:h-96 rounded-3xl flex flex-col flex-1 gap-2 justify-evenly relative hover:-translate-y-2 transition-transform duration-300">
+      <a className="h-80 min-w-full md:min-w-[40%] lg:min-w-[30%] xl:h-96 rounded-3xl flex flex-col flex-1 gap-2 justify-evenly relative hover:-translate-y-2 transition-transform duration-300">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-3xl brightness-50">
           <div className="relative w-full h-full">
             <BlurImage blurCss={blurCss} />
