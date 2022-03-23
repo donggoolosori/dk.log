@@ -13,11 +13,18 @@ export default function Post({ postData }: Props) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <h1 className="text-3xl">{postData.title}</h1>
-      <br />
-      {postData.date}
-      <br />
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml! }} />
+      <div className="flex justify-center">
+        <article className="prose prose-lg md:prose-xl">
+          <section className="flex flex-col items-center">
+            <h1>{postData.title}</h1>
+            <h5>{postData.date}</h5>
+            <div></div>
+          </section>
+          <section
+            dangerouslySetInnerHTML={{ __html: postData.contentHtml! }}
+          />
+        </article>
+      </div>
     </Layout>
   );
 }
