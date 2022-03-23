@@ -2,6 +2,7 @@ import { PostData } from '@lib/posts';
 import Image from 'next/image';
 import Link from 'next/link';
 import BlurImage from './BlurImage';
+import PostImage from './PostImage';
 
 type Props = PostData;
 
@@ -17,16 +18,7 @@ export default function PostCard({
     <Link href={`/posts/${id}`}>
       <a className="group h-80 min-w-full md:min-w-[40%] lg:min-w-[30%] xl:h-96 rounded-3xl flex flex-col flex-1 gap-2 justify-evenly relative hover:-translate-y-2 transition-transform duration-300">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-3xl brightness-50 group-hover:brightness-75">
-          <div className="relative w-full h-full">
-            <BlurImage blurCss={blurCss} />
-            <Image
-              src={coverImg}
-              alt="cover-image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-3xl"
-            />
-          </div>
+          <PostImage blurCss={blurCss} coverImg={coverImg} />
         </div>
         <section className="z-10 w-full h-4/5 mt-20 flex flex-col justify-between p-10 text-slate-50">
           <h1 className="font-bold text-2xl w-full line-clamp-2 sm:line-clamp-1 md:line-clamp-2">

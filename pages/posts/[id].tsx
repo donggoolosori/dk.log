@@ -1,4 +1,5 @@
 import Layout from '@components/layout';
+import PostImage from '@components/PostImage';
 import { getAllPostIds, getPostData, PostData } from '@lib/posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -15,10 +16,17 @@ export default function Post({ postData }: Props) {
       </Head>
       <div className="flex justify-center">
         <article className="prose prose-lg md:prose-xl">
-          <section className="flex flex-col items-center">
+          <section className="flex flex-col items-center gap-5">
             <h1>{postData.title}</h1>
             <h5>{postData.date}</h5>
-            <div></div>
+            <div className="w-full h-100 overflow-hidden rounded-3xl">
+              <div className="relative w-full h-full">
+                <PostImage
+                  blurCss={postData.blurCss}
+                  coverImg={postData.coverImg}
+                />
+              </div>
+            </div>
           </section>
           <section
             dangerouslySetInnerHTML={{ __html: postData.contentHtml! }}
