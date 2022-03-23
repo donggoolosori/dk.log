@@ -32,29 +32,8 @@ export async function getSortedPostsData() {
 
   const promises: Promise<PostData>[] = fileNames.map(async (fileName) => {
     const id = fileName.replace(/\.md$/, '');
-
-    const filePath = path.join(postsDir, fileName);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-
-    const matterResult = matter(fileContent);
-
-    const { title } = matterResult.data;
-
-    let { date, coverImg, description } = matterResult.data;
-    date = formatDate(date);
-    description = description || '';
-    coverImg = coverImg || getRandomDefaultImage();
-
-    const { css } = await getPlaiceholder(coverImg);
-
-    return {
-      id,
-      title,
-      date,
-      coverImg,
-      description,
-      blurCss: css,
-    };
+    const { metaData } = await getPostMetaData(id);
+    return metaData;
   });
 
   const allPostsData = await Promise.all(promises);
@@ -77,10 +56,7 @@ export function getAllPostIds() {
 }
 
 export async function getPostData(id: string): Promise<PostData> {
-  const fullPath = path.join(postsDir, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-  const matterResult = matter(fileContents);
+  const { metaData, matterResult } = await getPostMetaData(id);
 
   const processedContent = await remark()
     .use(html)
@@ -89,8 +65,35 @@ export async function getPostData(id: string): Promise<PostData> {
   const contentHtml = processedContent.toString();
 
   return {
-    id,
+    ...metaData,
     contentHtml,
-    ...matterResult.data,
   } as PostData;
+}
+
+async function getPostMetaData(id: string) {
+  const filePath = path.join(postsDir, `${id}.md`);
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+  const matterResult = matter(fileContent);
+
+  const { title } = matterResult.data;
+
+  let { date, coverImg, description } = matterResult.data;
+  date = formatDate(date);
+  description = description || '';
+  coverImg = coverImg || getRandomDefaultImage();
+
+  const { css } = await getPlaiceholder(coverImg);
+
+  return {
+    metaData: {
+      id,
+      title,
+      date,
+      coverImg,
+      description,
+      blurCss: css,
+    },
+    matterResult,
+  };
 }
