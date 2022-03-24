@@ -15,9 +15,9 @@ export default function Post({ postData }: Props) {
         <title>{postData.title}</title>
       </Head>
       <div className="flex justify-center">
-        <article className="prose prose-lg md:prose-xl">
-          <section className="flex flex-col items-center gap-5">
-            <h1>{postData.title}</h1>
+        <article className="prose prose-lg lg:prose-xl">
+          <section className="flex flex-col items-center gap-6">
+            <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
             <div className="w-full h-100 overflow-hidden rounded-3xl">
               <div className="relative w-full h-full">

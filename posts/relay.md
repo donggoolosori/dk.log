@@ -3,6 +3,16 @@ title: 'Relay GraphQL'
 date: '2020-03-01'
 description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit nisi sed? Iusto, deserunt dolores.'
 ---
+```js
+const hi = "hi";
+console.log(hi);
+
+function hello(){
+  console.log("hello");
+}
+
+hello();
+```
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
 
