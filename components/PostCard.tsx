@@ -1,7 +1,5 @@
 import { PostData } from '@lib/posts';
-import Image from 'next/image';
 import Link from 'next/link';
-import BlurImage from './BlurImage';
 import PostImage from './PostImage';
 
 type Props = PostData;
