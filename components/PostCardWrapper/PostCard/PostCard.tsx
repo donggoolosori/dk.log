@@ -1,6 +1,6 @@
 import { PostData } from '@lib/posts';
 import Link from 'next/link';
-import PostImage from './PostImage';
+import PostImage from '@components/PostImage';
 
 type Props = PostData;
 

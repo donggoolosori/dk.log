@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next';
 import { getSortedPostsData, PostData } from '@lib/posts';
 import Layout from '@components/layout';
-import PostCardList from '@components/PostCardList';
+import PostCardList from '@components/PostCardWrapper';
 
 interface Props {
   allPostsData: PostData[];
