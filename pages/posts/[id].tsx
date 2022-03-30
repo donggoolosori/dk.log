@@ -20,12 +20,10 @@ export default function Post({ postData }: Props) {
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
             <div className="w-full h-100 overflow-hidden rounded-3xl">
-              <div className="relative w-full h-full">
-                <PostImage
-                  blurCss={postData.blurCss}
-                  coverImg={postData.coverImg}
-                />
-              </div>
+              <PostImage
+                blurCss={postData.blurCss}
+                coverImg={postData.coverImg}
+              />
             </div>
           </section>
           <section
