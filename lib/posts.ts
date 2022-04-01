@@ -27,11 +27,13 @@ export interface PostData {
 
 const postsDir = path.join(process.cwd(), 'posts');
 
+const fileExtensionRegex = /\.mdx?$/;
+
 export async function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDir);
 
   const promises: Promise<PostData>[] = fileNames.map(async (fileName) => {
-    const id = fileName.replace(/\.md$/, '');
+    const id = fileName.replace(fileExtensionRegex, '');
     const { metaData } = await getPostMetaData(id);
     return metaData;
   });
@@ -49,7 +51,7 @@ export function getAllPostIds() {
   return fileNames.map((fileName) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ''),
+        id: fileName.replace(fileExtensionRegex, ''),
       },
     };
   });
