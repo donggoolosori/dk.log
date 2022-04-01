@@ -5,7 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { getPlaiceholder } from 'plaiceholder';
 import { getRandomDefaultImage } from './image';
-import { formatDate } from './utils/formatDate';
+import { formatDate } from '@helpers/formatDate';
 
 export interface PostMetaData {
   id: string;
