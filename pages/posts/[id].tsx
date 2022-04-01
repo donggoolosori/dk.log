@@ -19,7 +19,7 @@ export default function Post({ postData }: Props) {
           <section className="flex flex-col items-center gap-6">
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
-            <div className="w-full h-100 overflow-hidden rounded-3xl shadow-2xl shadow-black mb-8">
+            <div className="w-full h-100 overflow-hidden rounded-3xl shadow-2xl shadow-slate-700 mb-28">
               <PostImage
                 blurCss={postData.blurCss}
                 coverImg={postData.coverImg}
