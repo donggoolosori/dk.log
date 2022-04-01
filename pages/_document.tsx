@@ -9,7 +9,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="px-3 lg:px-12">
+      <body className="p-4 lg:p-12">
         <Main />
         <NextScript />
       </body>
