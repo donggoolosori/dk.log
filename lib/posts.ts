@@ -73,8 +73,12 @@ export async function getPostData(id: string): Promise<PostData> {
 }
 
 async function getPostMetaData(id: string) {
-  const filePath = path.join(postsDir, `${id}.md`);
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const mdPath = path.join(postsDir, `${id}.md`);
+  const mdxPath = path.join(postsDir, `${id}.mdx`);
+
+  const fileContent = fs.existsSync(mdPath)
+    ? fs.readFileSync(mdPath, 'utf-8')
+    : fs.readFileSync(mdxPath, 'utf-8');
 
   const matterResult = matter(fileContent);
 
