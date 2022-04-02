@@ -6,6 +6,7 @@ import html from 'remark-html';
 import { getPlaiceholder } from 'plaiceholder';
 import { getRandomDefaultImage } from './image';
 import { formatDate } from '@helpers/formatDate';
+import remarkMdx from 'remark-mdx';
 
 export interface PostMetaData {
   id: string;
@@ -61,6 +62,7 @@ export async function getPostData(id: string): Promise<PostData> {
   const { metaData, matterResult } = await getPostMetaData(id);
 
   const processedContent = await remark()
+    .use(remarkMdx)
     .use(html)
     .process(matterResult.content);
 
