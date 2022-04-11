@@ -19,7 +19,8 @@
       "@components/*":["components/*"],
       "@lib/*":["lib/*"],
       "@posts/*":["posts/*"],      
-      "@helpers/*":["helpers/*"]
+      "@helpers/*":["helpers/*"],
+      "@constants/*":["constants/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
