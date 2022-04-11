@@ -1,6 +1,6 @@
+import { blogName, name, siteTitle } from '@constants/blog';
 import Head from 'next/head';
-
-const siteTitle = 'dk blog';
+import Header from './Header';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,12 +10,10 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <Head>
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <meta name={blogName} content={`${name}'s dev blog`} />
         <meta name="og:title" content={siteTitle} />
       </Head>
+      <Header />
       {children}
     </div>
   );
