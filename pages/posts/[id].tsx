@@ -15,11 +15,11 @@ export default function Post({ postData }: Props) {
         <title>{postData.title}</title>
       </Head>
       <div className="flex justify-center">
-        <article className="prose prose-lg lg:prose-xl">
+        <article className="prose prose-lg md:prose-xl">
           <section className="flex flex-col items-center gap-6">
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
-            <div className="w-full h-100 overflow-hidden rounded-3xl shadow-2xl shadow-slate-700 mb-28">
+            <div className="w-full md:w-4/5 h-100 overflow-hidden rounded-3xl shadow-2xl shadow-slate-700 mb-28">
               <PostImage
                 blurCss={postData.blurCss}
                 coverImg={postData.coverImg}
