@@ -14,6 +14,7 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="og:title" content={siteTitle} />
       </Head>
       <Header />
+      <div className="mb-20"></div>
       {children}
     </div>
   );
