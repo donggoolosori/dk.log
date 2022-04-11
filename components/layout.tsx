@@ -12,6 +12,7 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <meta name={blogName} content={`${name}'s dev blog`} />
         <meta name="og:title" content={siteTitle} />
+        <title>{siteTitle}</title>
       </Head>
       <Header />
       <div className="mb-20"></div>
