@@ -17,12 +17,14 @@ const ProfileCard = () => {
 
     if (card.current) {
       card.current.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+      card.current.style.transition = 'all 0.1s ease';
     }
   }, []);
 
   const onMouseLeave = useCallback(() => {
     if (card.current) {
       card.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+      card.current.style.transition = 'all 1s ease';
     }
   }, []);
 
