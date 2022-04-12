@@ -23,6 +23,7 @@ export default function Post({ postData }: Props) {
               <PostImage
                 blurCss={postData.blurCss}
                 coverImg={postData.coverImg}
+                priority
               />
             </div>
           </section>
