@@ -12,8 +12,8 @@ const ProfileCard = () => {
     const xAxis = rect.left + rect.width / 2;
     const yAxis = rect.top + rect.height / 2;
 
-    const rotateY = (xAxis - e.pageX) / 10;
-    const rotateX = (yAxis - e.pageY) / 10;
+    const rotateY = (xAxis - e.clientX) / 10;
+    const rotateX = (yAxis - e.clientY) / 10;
 
     if (card.current) {
       card.current.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
