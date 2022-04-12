@@ -1,3 +1,5 @@
+import { profileImage } from '@constants/profile';
+import Image from 'next/image';
 import React, { useCallback, useRef } from 'react';
 
 const ProfileCard = () => {
@@ -37,8 +39,26 @@ const ProfileCard = () => {
     >
       <section
         ref={card}
-        className="w-100 h-[580px] bg-slate-400 rounded-3xl"
-      ></section>
+        className="w-100 h-[580px] rounded-3xl shadow-lg shadow-sky-600 overflow-hidden"
+      >
+        <div className="relative w-full h-1/2 shadow-md shadow-sky-300">
+          <Image
+            src={profileImage}
+            alt="profile-image"
+            priority
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div className="p-6">
+          <h1>Dongjune Kim</h1>
+          <div>
+            <p>email</p>
+          </div>
+          <h3>github</h3>
+          <h3>location</h3>
+        </div>
+      </section>
     </div>
   );
 };
