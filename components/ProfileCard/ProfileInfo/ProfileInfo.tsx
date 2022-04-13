@@ -25,19 +25,19 @@ const ProfileInfo = () => {
 
       <div className="flex items-center text-lg gap-3">
         <MailOutlineIcon className="text-2xl" />
-        <p className="translate-y-[1px]">{email}</p>
+        <p>{email}</p>
       </div>
       <a href={githubURL} className="flex items-center text-lg gap-3">
         <GitHubIcon className="text-2xl" />
-        <p className="translate-y-[1px]">{githubUserName}</p>
+        <p>{githubUserName}</p>
       </a>
       <a href={instagramURL} className="flex items-center text-lg gap-3">
         <InstagramIcon className="text-2xl" />
-        <p className="translate-y-[1px]">{instagramUserName}</p>
+        <p>{instagramUserName}</p>
       </a>
       <div className="flex items-center text-lg gap-3">
         <LocationOnIcon className="text-2xl" />
-        <p className="translate-y-[1px]">{location}</p>
+        <p>{location}</p>
       </div>
     </div>
   );
