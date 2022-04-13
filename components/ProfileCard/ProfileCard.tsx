@@ -1,42 +1,19 @@
-import React, { useCallback, useRef } from 'react';
-
 import ProfileImage from './ProfileImage';
 import ProfileInfo from './ProfileInfo';
+import use3dCard from './use3dCard.hook';
 
 const ProfileCard = () => {
-  const cardWrapper = useRef<HTMLDivElement>(null);
-  const card = useRef<HTMLElement>(null);
-
-  const onMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!cardWrapper.current) return;
-
-    const rect = cardWrapper.current.getBoundingClientRect();
-
-    const xAxis = rect.left + rect.width / 2;
-    const yAxis = rect.top + rect.height / 2;
-
-    const rotateY = (xAxis - e.clientX) / 10;
-    const rotateX = (yAxis - e.clientY) / 10;
-
-    if (card.current) {
-      card.current.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-      card.current.style.transition = 'all 0.1s ease';
-    }
-  }, []);
-
-  const onMouseLeave = useCallback(() => {
-    if (card.current) {
-      card.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
-      card.current.style.transition = 'all 1s ease';
-    }
-  }, []);
+  const { card, cardWrapper, onMouseEnter, onMouseLeave, onMouseMove } =
+    use3dCard();
 
   return (
     <div
       ref={cardWrapper}
-      className="max-w-[440px] h-[620px] mb-20 mx-auto flex items-center justify-center"
+      className="max-w-[640px] h-[620px] mb-20 mx-auto flex items-center justify-center"
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}
+      style={{ perspective: '1000px' }}
     >
       <section
         ref={card}
