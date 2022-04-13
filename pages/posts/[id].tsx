@@ -26,11 +26,7 @@ export default function Post({ postData }: Props) {
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
             <div className="w-full max-w-[672px] h-[420px] overflow-hidden rounded-3xl shadow-2xl shadow-slate-700 mb-28">
-              <PostImage
-                blurCss={postData.blurCss}
-                coverImg={postData.coverImg}
-                priority
-              />
+              <PostImage coverImg={postData.coverImg} priority />
             </div>
           </section>
           <Content />
