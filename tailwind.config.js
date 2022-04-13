@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        fredoka: ['Fredoka', 'sans-serif'],
+        ubuntu: ['Ubuntu', 'sans-serif'],
       },
       spacing: {
         100: '25rem',
