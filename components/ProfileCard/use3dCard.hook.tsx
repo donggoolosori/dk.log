@@ -17,7 +17,6 @@ const use3dCard = () => {
 
     if (card.current) {
       card.current.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-      card.current.style.transition = 'all 0.1s ease';
     }
   }, []);
 
@@ -30,7 +29,7 @@ const use3dCard = () => {
 
   const onMouseEnter = useCallback(() => {
     if (card.current) {
-      card.current.style.transform = 'translateZ(100px)';
+      card.current.style.transition = 'all 0.1s ease';
     }
   }, []);
 
