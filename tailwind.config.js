@@ -6,7 +6,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        ubuntu: ['Ubuntu', 'sans-serif'],
+        opensans: [
+          'Open Sans',
+          'sans-serif',
+          '-apple-system',
+          'Segoe UI',
+          'BlinkMacSystemFont',
+        ],
+        josefinsans: ['Josefin Sans', 'sans-serif'],
       },
       spacing: {
         100: '25rem',
