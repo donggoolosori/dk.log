@@ -17,10 +17,11 @@ const ProfileCard = () => {
     >
       <section
         ref={card}
-        className="w-100 h-[580px] rounded-3xl shadow-lg shadow-sky-600 overflow-hidden"
+        className="w-100 h-[580px] rounded-2xl shadow-lg shadow-sky-300 overflow-hidden flex flex-col justify-between"
       >
         <ProfileImage />
         <ProfileInfo />
+        <div className="bg-gradient-to-r from-sky-300 via-purple-500 to-indigo-500 w-full h-[6px]" />
       </section>
     </div>
   );
