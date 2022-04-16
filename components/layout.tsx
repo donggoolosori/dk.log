@@ -1,5 +1,6 @@
 import { blogName, name, siteTitle } from '@constants/blog';
 import Head from 'next/head';
+import Footer from './Footer';
 import Header from './Header';
 
 interface LayoutProps {
@@ -17,6 +18,7 @@ export default function Layout({ children }: LayoutProps) {
       <Header />
       <div className="mb-20"></div>
       {children}
+      <Footer />
     </div>
   );
 }
