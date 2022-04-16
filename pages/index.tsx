@@ -17,7 +17,7 @@ export default function Home({ allPostsData }: Props) {
       <PostCardList allPostsData={allPostsData} />
       <div className="w-full flex justify-center">
         <Link href={'/posts'}>
-          <a className="text-slate-600 shadow-lg shadow-sky-300 text-md mt-20 rounded-2xl p-4 hover:-translate-y-2 transition-transform duration-300">
+          <a className="text-slate-600 shadow-slate-400 shadow-lg text-md mt-20 rounded-2xl p-4 hover:-translate-y-2 transition-transform duration-300">
             ✍️ MORE POSTS
           </a>
         </Link>
