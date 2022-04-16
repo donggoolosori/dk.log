@@ -13,7 +13,7 @@ export default function Home({ allPostsData }: Props) {
   return (
     <Layout>
       <ProfileCard />
-      <h1 className="text-4xl mb-10 text-slate-600">📌 Recent Posts</h1>
+      <h1 className="text-3xl mb-10 text-slate-600">📌 Recent Posts</h1>
       <PostCardList allPostsData={allPostsData} />
       <div className="w-full flex justify-center">
         <Link href={'/posts'}>
