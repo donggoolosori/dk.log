@@ -31,10 +31,6 @@ interface PostDataOption {
 export async function getSortedPostsData(options?: PostDataOption) {
   let fileNames = fs.readdirSync(postsDir);
 
-  if (options?.recent) {
-    fileNames = fileNames.slice(0, 6);
-  }
-
   const promises: Promise<PostMetaData>[] = fileNames.map(async (fileName) => {
     const id = fileName.replace(fileExtensionRegex, '');
     const frontmatter = await getFrontMatter(id);
@@ -43,9 +39,15 @@ export async function getSortedPostsData(options?: PostDataOption) {
 
   const allPostsData = await Promise.all(promises);
 
-  return allPostsData.sort(({ date: a }, { date: b }) => {
+  allPostsData.sort(({ date: a }, { date: b }) => {
     return +new Date(b) - +new Date(a);
   });
+
+  if (options?.recent) {
+    return allPostsData.slice(0, 6);
+  }
+
+  return allPostsData;
 }
 
 export function getAllPostIds() {
