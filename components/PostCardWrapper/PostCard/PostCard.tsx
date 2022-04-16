@@ -25,10 +25,8 @@ export default function PostCard({
           <h1 className="font-bold text-2xl w-full line-clamp-2 sm:line-clamp-1 md:line-clamp-2">
             {title}
           </h1>
-          <p className="text-xl w-full line-clamp-2 font-josefinsans">
-            {description}
-          </p>
-          <span className="text-lg italic h-1/5 font-josefinsans">{date}</span>
+          <p className="text-md w-full line-clamp-2">{description}</p>
+          <span className="text-md italic h-1/5">{date}</span>
         </section>
       </a>
     </Link>

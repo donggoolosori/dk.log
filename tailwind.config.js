@@ -8,6 +8,7 @@ module.exports = {
       fontFamily: {
         opensans: [
           'Open Sans',
+          'Noto Sans KR',
           'sans-serif',
           '-apple-system',
           'Segoe UI',
