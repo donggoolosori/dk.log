@@ -16,11 +16,11 @@ export default function Home({ allPostsData }: Props) {
       <h1 className="text-4xl mb-10 text-slate-600">📌 Recent Posts</h1>
       <PostCardList allPostsData={allPostsData} />
       <div className="w-full flex justify-center">
-        <button className="text-slate-600 shadow-lg shadow-sky-300 text-md mt-20 rounded-xl p-4 hover:-translate-y-2 transition-transform duration-300">
-          <Link href={'/posts'}>
-            <a>✍️ MORE POSTS</a>
-          </Link>
-        </button>
+        <Link href={'/posts'}>
+          <a className="text-slate-600 shadow-lg shadow-sky-300 text-md mt-20 rounded-2xl p-4 hover:-translate-y-2 transition-transform duration-300">
+            ✍️ MORE POSTS
+          </a>
+        </Link>
       </div>
     </Layout>
   );
