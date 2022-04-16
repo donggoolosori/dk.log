@@ -1,20 +1,22 @@
 import AllTags from '@components/AllTags';
 import Layout from '@components/layout';
 import PostCardWrapper from '@components/PostCardWrapper';
-import { getSortedPostsMetaData, PostData } from '@lib/posts';
+import { getSortedPostsMetaData, PostMetaData } from '@lib/posts';
 import { getAllTags, Tags } from '@lib/tag';
 import { GetStaticProps } from 'next';
 
 interface Props {
-  allPostsMetaData: PostData[];
+  allPostsMetaData: PostMetaData[];
   allTags: Tags;
 }
 
 export default function Posts({ allPostsMetaData, allTags }: Props) {
   return (
     <Layout>
-      <AllTags allTags={allTags} />
-      <PostCardWrapper allPostsMetaData={allPostsMetaData} />
+      <div className="flex flex-col items-center">
+        <AllTags allTags={allTags} />
+        <PostCardWrapper allPostsMetaData={allPostsMetaData} />
+      </div>
     </Layout>
   );
 }

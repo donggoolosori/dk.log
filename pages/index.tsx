@@ -1,20 +1,20 @@
 import type { GetStaticProps } from 'next';
-import { getSortedPostsMetaData, PostData } from '@lib/posts';
+import { getSortedPostsMetaData, PostMetaData } from '@lib/posts';
 import Layout from '@components/layout';
 import PostCardList from '@components/PostCardWrapper';
 import ProfileCard from '@components/ProfileCard';
 import Link from 'next/link';
 
 interface Props {
-  allPostsData: PostData[];
+  allPostsMetaData: PostMetaData[];
 }
 
-export default function Home({ allPostsData }: Props) {
+export default function Home({ allPostsMetaData }: Props) {
   return (
     <Layout>
       <ProfileCard />
       <h1 className="text-3xl mb-10 text-slate-600">📌 Recent Posts</h1>
-      <PostCardList allPostsData={allPostsData} />
+      <PostCardList allPostsMetaData={allPostsMetaData} />
       <div className="w-full flex justify-center">
         <Link href={'/posts'}>
           <a className="text-slate-600 shadow-slate-400 shadow-lg text-md mt-20 rounded-2xl p-4 hover:-translate-y-2 transition-transform duration-300">
@@ -27,11 +27,11 @@ export default function Home({ allPostsData }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = await getSortedPostsMetaData({ recent: true });
+  const allPostsMetaData = await getSortedPostsMetaData({ recent: true });
 
   return {
     props: {
-      allPostsData,
+      allPostsMetaData,
     },
   };
 };
