@@ -2,6 +2,7 @@
 title: 'Relay GraphQL'
 date: '2020-03-01'
 description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit nisi sed? Iusto, deserunt dolores.'
+tags: ['GraphQL', 'Relay']
 ---
 ```js
 const hi = "hi";

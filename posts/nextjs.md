@@ -3,6 +3,7 @@ title: 'Next js is awesome'
 date: '2021-01-02'
 coverImg: '/images/post/home-bg.jpg'
 description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit nisi sed? Iusto, deserunt dolores.?'
+tags: ['NextJs', 'SSG']
 ---
 
 We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
