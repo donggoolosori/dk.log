@@ -24,8 +24,16 @@ const postsDir = path.join(process.cwd(), 'posts');
 
 const fileExtensionRegex = /\.mdx?$/;
 
-export async function getSortedPostsData() {
-  const fileNames = fs.readdirSync(postsDir);
+interface PostDataOption {
+  recent: boolean;
+}
+
+export async function getSortedPostsData(options?: PostDataOption) {
+  let fileNames = fs.readdirSync(postsDir);
+
+  if (options?.recent) {
+    fileNames = fileNames.slice(0, 6);
+  }
 
   const promises: Promise<PostMetaData>[] = fileNames.map(async (fileName) => {
     const id = fileName.replace(fileExtensionRegex, '');
