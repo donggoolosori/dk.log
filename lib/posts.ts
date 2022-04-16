@@ -12,16 +12,11 @@ export interface PostMetaData {
   date: string;
   description: string;
   coverImg: string;
+  blurCss?: any;
+  tags?: string[];
 }
 
-export interface PostData {
-  id: string;
-  title: string;
-  date: string;
-  description: string;
-  coverImg: string;
-  contentHtml?: string;
-  blurCss?: any;
+export interface PostData extends PostMetaData {
   mdxSource?: any;
 }
 
@@ -32,7 +27,7 @@ const fileExtensionRegex = /\.mdx?$/;
 export async function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDir);
 
-  const promises: Promise<PostData>[] = fileNames.map(async (fileName) => {
+  const promises: Promise<PostMetaData>[] = fileNames.map(async (fileName) => {
     const id = fileName.replace(fileExtensionRegex, '');
     const frontmatter = await getFrontMatter(id);
     return frontmatter;
@@ -100,8 +95,6 @@ async function getFrontMatter(id: string, source?: string) {
 
   const { frontmatter } = await bundleMDX({ source });
 
-  const { title } = frontmatter;
-
   let { date, coverImg, description } = frontmatter;
   date = formatDate(date);
   description = description || '';
@@ -110,11 +103,11 @@ async function getFrontMatter(id: string, source?: string) {
   const { css } = await getPlaiceholder(coverImg);
 
   return {
+    ...frontmatter,
     id,
-    title,
     date,
     coverImg,
     description,
     blurCss: css,
-  };
+  } as PostMetaData;
 }

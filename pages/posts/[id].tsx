@@ -15,6 +15,7 @@ export default function Post({ postData }: Props) {
     () => getMDXComponent(postData.mdxSource),
     [postData.mdxSource]
   );
+
   return (
     <Layout>
       <Head>
