@@ -20,7 +20,7 @@ export interface PostData extends PostMetaData {
   mdxSource?: any;
 }
 
-const postsDir = path.join(process.cwd(), 'posts');
+export const postsDir = path.join(process.cwd(), 'posts');
 
 const fileExtensionRegex = /\.mdx?$/;
 
@@ -28,7 +28,7 @@ interface PostDataOption {
   recent: boolean;
 }
 
-export async function getSortedPostsData(options?: PostDataOption) {
+export async function getSortedPostsMetaData(options?: PostDataOption) {
   let fileNames = fs.readdirSync(postsDir);
 
   const promises: Promise<PostMetaData>[] = fileNames.map(async (fileName) => {
@@ -37,17 +37,17 @@ export async function getSortedPostsData(options?: PostDataOption) {
     return frontmatter;
   });
 
-  const allPostsData = await Promise.all(promises);
+  const allPostsMetaData = await Promise.all(promises);
 
-  allPostsData.sort(({ date: a }, { date: b }) => {
+  allPostsMetaData.sort(({ date: a }, { date: b }) => {
     return +new Date(b) - +new Date(a);
   });
 
   if (options?.recent) {
-    return allPostsData.slice(0, 6);
+    return allPostsMetaData.slice(0, 6);
   }
 
-  return allPostsData;
+  return allPostsMetaData;
 }
 
 export function getAllPostIds() {

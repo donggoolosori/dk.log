@@ -1,5 +1,5 @@
 import type { GetStaticProps } from 'next';
-import { getSortedPostsData, PostData } from '@lib/posts';
+import { getSortedPostsMetaData, PostData } from '@lib/posts';
 import Layout from '@components/layout';
 import PostCardList from '@components/PostCardWrapper';
 import ProfileCard from '@components/ProfileCard';
@@ -27,7 +27,7 @@ export default function Home({ allPostsData }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = await getSortedPostsData({ recent: true });
+  const allPostsData = await getSortedPostsMetaData({ recent: true });
 
   return {
     props: {

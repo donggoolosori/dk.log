@@ -1,6 +1,6 @@
 import Layout from '@components/layout';
 import PostCardWrapper from '@components/PostCardWrapper';
-import { getSortedPostsData, PostData } from '@lib/posts';
+import { getSortedPostsMetaData, PostData } from '@lib/posts';
 import { GetStaticProps } from 'next';
 
 interface Props {
@@ -16,7 +16,7 @@ export default function Posts({ allPostsData }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = await getSortedPostsData();
+  const allPostsData = await getSortedPostsMetaData();
 
   return {
     props: {
