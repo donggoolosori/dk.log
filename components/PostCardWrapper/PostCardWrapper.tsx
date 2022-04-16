@@ -2,13 +2,13 @@ import { PostData } from '@lib/posts';
 import PostCard from './PostCard';
 
 interface Props {
-  allPostsData: PostData[];
+  allPostsMetaData: PostData[];
 }
 
-export default function PostCardList({ allPostsData }: Props) {
+export default function PostCardList({ allPostsMetaData }: Props) {
   return (
     <div className="flex flex-wrap gap-8">
-      {allPostsData.map((props) => (
+      {allPostsMetaData.map((props) => (
         <PostCard key={props.id} {...props} />
       ))}
     </div>
