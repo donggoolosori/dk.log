@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import rehypePrismPlus from 'rehype-prism-plus';
 import { getPlaiceholder } from 'plaiceholder';
 import { getRandomDefaultImage } from './image';
 import { formatDate } from '@helpers/formatDate';
@@ -57,6 +57,8 @@ export function getAllPostIds() {
   });
 }
 
+const root = process.cwd();
+
 export async function getPostData(id: string): Promise<PostData> {
   const mdPath = path.join(postsDir, `${id}.md`);
   const mdxPath = path.join(postsDir, `${id}.mdx`);
@@ -67,6 +69,15 @@ export async function getPostData(id: string): Promise<PostData> {
 
   const { code } = await bundleMDX({
     source,
+    cwd: path.join(root, 'components'),
+    mdxOptions(options) {
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        [rehypePrismPlus, { ignoreMissing: true }],
+      ];
+
+      return options;
+    },
   });
 
   const frontmatter = await getFrontMatter(id, source);
