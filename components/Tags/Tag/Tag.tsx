@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Props {
   tag: string;
   count?: number;
@@ -8,7 +6,9 @@ interface Props {
 
 const Tag = ({ tag, count, className }: Props) => {
   return (
-    <li className={`border-2 rounded-xl px-3 flex gap-2 ${className}`}>
+    <li
+      className={`rounded-xl px-3 py-[2px] flex gap-2 cursor-pointer bg-blue-700 ${className}`}
+    >
       <span>{tag}</span>
       {count && <span className="text-xs">{count}</span>}
     </li>
