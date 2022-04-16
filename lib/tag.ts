@@ -5,7 +5,7 @@ type Tag = [string, number];
 export type Tags = Tag[];
 
 export const getAllTags = (allPostsMetaData: PostMetaData[]): Tags => {
-  const allTags: TagCounter = {};
+  const allTags: TagCounter = { All: 0 };
 
   allPostsMetaData.forEach(({ tags }) => {
     tags?.forEach((tag) => {
@@ -13,6 +13,7 @@ export const getAllTags = (allPostsMetaData: PostMetaData[]): Tags => {
         allTags[tag] = 0;
       }
       allTags[tag]++;
+      allTags['All']++;
     });
   });
 
