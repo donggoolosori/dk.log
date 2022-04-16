@@ -10,7 +10,7 @@ const AllTags = ({ allTags }: Props) => {
   return (
     <div className="flex flex-wrap gap-2 mb-20 max-w-3xl">
       {allTags.map((tag, idx) => (
-        <Tag key={tag[0] + idx} tag={tag[0]} />
+        <Tag key={tag[0] + idx} tag={tag[0]} count={tag[1]} />
       ))}
     </div>
   );
