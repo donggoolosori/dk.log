@@ -3,8 +3,6 @@ import { useRouter } from 'next/router';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export default function usePostSearch(posts: PostMetaData[]) {
-  const [input, setInput] = useState<string>('');
-
   const [filteredPosts, setFilteredPosts] = useState<PostMetaData[]>([]);
 
   const route = useRouter().asPath;
@@ -15,8 +13,6 @@ export default function usePostSearch(posts: PostMetaData[]) {
 
   const searchHandler = (e: ChangeEvent) => {
     const { value } = e.target as HTMLInputElement;
-
-    setInput(value);
 
     if (!value) {
       setFilteredPosts(posts);
@@ -29,5 +25,5 @@ export default function usePostSearch(posts: PostMetaData[]) {
     }
   };
 
-  return { input, filteredPosts, searchHandler };
+  return { filteredPosts, searchHandler };
 }
