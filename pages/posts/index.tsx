@@ -24,7 +24,7 @@ export default function Posts({ allPostsMetaData, allTags }: Props) {
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsMetaData = await getSortedPostsMetaData();
 
-  const allTags = getAllTags(allPostsMetaData);
+  const allTags = getAllTags();
 
   return {
     props: {

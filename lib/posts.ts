@@ -22,7 +22,7 @@ export interface PostData extends PostMetaData {
 
 export const postsDir = path.join(process.cwd(), 'posts');
 
-const fileExtensionRegex = /\.mdx?$/;
+export const fileExtensionRegex = /\.mdx?$/;
 
 interface PostDataOption {
   recent: boolean;
@@ -93,7 +93,7 @@ export async function getPostData(id: string): Promise<PostData> {
   } as PostData;
 }
 
-async function getFrontMatter(id: string, source?: string) {
+export async function getFrontMatter(id: string, source?: string) {
   if (!source) {
     const mdPath = path.join(postsDir, `${id}.md`);
     const mdxPath = path.join(postsDir, `${id}.mdx`);

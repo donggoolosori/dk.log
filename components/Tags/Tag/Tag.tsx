@@ -8,7 +8,7 @@ interface Props {
 
 const Tag = ({ tag, count, className }: Props) => {
   return (
-    <Link href={`/posts?tag=${tag}`}>
+    <Link href={`/posts/tag/${tag}`}>
       <a
         className={`rounded-xl px-3 flex gap-2 cursor-pointer border-2 ${className}`}
       >
