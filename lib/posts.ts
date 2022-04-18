@@ -5,6 +5,7 @@ import { getPlaiceholder } from 'plaiceholder';
 import { getRandomDefaultImage } from './image';
 import { formatDate } from '@helpers/formatDate';
 import { bundleMDX } from 'mdx-bundler';
+import matter from 'gray-matter';
 
 export interface PostMetaData {
   id: string;
@@ -103,9 +104,9 @@ export async function getFrontMatter(id: string, source?: string) {
       : fs.readFileSync(mdxPath, 'utf-8');
   }
 
-  const { frontmatter } = await bundleMDX({ source });
+  const { data } = matter(source);
 
-  let { date, coverImg, description } = frontmatter;
+  let { date, coverImg, description } = data;
   date = formatDate(date);
   description = description || '';
   coverImg = coverImg || getRandomDefaultImage();
@@ -113,7 +114,7 @@ export async function getFrontMatter(id: string, source?: string) {
   const { css } = await getPlaiceholder(coverImg);
 
   return {
-    ...frontmatter,
+    ...data,
     id,
     date,
     coverImg,
