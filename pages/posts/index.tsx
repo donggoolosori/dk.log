@@ -18,7 +18,7 @@ export default function Posts({ allPostsMetaData, allTags }: Props) {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center gap-20">
+      <div className="flex flex-col items-center gap-16">
         <div className="flex items-center w-full max-w-lg relative">
           <SearchIcon className="absolute text-3xl right-4" />
           <input
