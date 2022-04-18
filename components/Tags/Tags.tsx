@@ -1,4 +1,4 @@
-import Tag from './Tag/Tag';
+import Tag from '@components/Tag';
 
 interface Props {
   tags?: string[];
