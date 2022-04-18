@@ -13,7 +13,7 @@ const AllTags = ({ allTags }: Props) => {
           key={tag[0] + idx}
           tag={tag[0]}
           count={tag[1]}
-          className="text-slate-50 shadow-md shadow-slate-400 bg-fixed bg-gradient-to-r from-[#7F7FD5] via-[#86A8E7] to-[#91eae4]"
+          className="text-slate-50 border-none py-[2px] shadow-md shadow-slate-400 bg-fixed bg-gradient-to-r from-[#7F7FD5] via-[#86A8E7] to-[#91eae4]"
         />
       ))}
     </div>
