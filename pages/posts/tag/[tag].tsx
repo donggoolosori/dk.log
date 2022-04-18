@@ -1,6 +1,5 @@
-import AllTags from '@components/AllTags';
 import Layout from '@components/layout';
-import PostCardWrapper from '@components/PostCardWrapper';
+import PostsPageMain from '@components/PostsPageMain';
 import { PostMetaData } from '@lib/posts';
 import { getAllTags, getTagFilteredPosts, Tags } from '@lib/tag';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -13,10 +12,7 @@ interface Props {
 export default function FilteredPosts({ filteredPosts, allTags }: Props) {
   return (
     <Layout>
-      <div className="flex flex-col items-center">
-        <AllTags allTags={allTags} />
-        <PostCardWrapper allPostsMetaData={filteredPosts} />
-      </div>
+      <PostsPageMain allPostsMetaData={filteredPosts} allTags={allTags} />
     </Layout>
   );
 }
