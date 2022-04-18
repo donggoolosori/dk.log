@@ -7,7 +7,7 @@ interface Props {
 
 const AllTags = ({ allTags }: Props) => {
   return (
-    <div className="flex flex-wrap gap-3 mb-20 max-w-3xl">
+    <div className="flex flex-wrap gap-3 max-w-3xl">
       {allTags.map((tag, idx) => (
         <Tag
           key={tag[0] + idx}
