@@ -25,7 +25,7 @@ export default function PostCard({
           <a className="font-bold text-2xl w-full line-clamp-2 sm:line-clamp-1 md:line-clamp-2">
             {title}
           </a>
-          <a className="text-md w-full line-clamp-2">{description}</a>
+          <a className="text-md w-full line-clamp-2 max-w-2xl">{description}</a>
           <a className="text-md italic h-1/5">{date}</a>
         </section>
       </div>
