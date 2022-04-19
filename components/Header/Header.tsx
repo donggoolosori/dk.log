@@ -11,7 +11,7 @@ const Header = () => {
             <a>{blogName}</a>
           </Link>
         </div>
-        <div className="text-xl flex justify-end gap-6 items-center">
+        <div className="text-xl flex justify-end gap-6 items-end">
           <div className="hover:text-indigo-500 dark:hover:text-indigo-300">
             <Link href={'/posts'}>
               <a>Posts</a>
