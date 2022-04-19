@@ -17,7 +17,7 @@ const ProfileCard = () => {
     >
       <section
         ref={card}
-        className="w-100 h-[580px] rounded-2xl shadow-lg shadow-sky-300 overflow-hidden flex flex-col justify-between transition-colors"
+        className="w-100 h-[580px] rounded-2xl shadow-lg shadow-sky-300 overflow-hidden flex flex-col justify-between"
       >
         <ProfileImage />
         <ProfileInfo />
