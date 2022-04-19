@@ -1,13 +1,8 @@
 import { blogName } from '@constants/blog';
 import Link from 'next/link';
-
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import useDarkMode from './useDarkMode.hook';
+import ThemeModeButton from './ThemeModeButton';
 
 const Header = () => {
-  const { isDark, darkModeHandler } = useDarkMode();
-
   return (
     <nav className="fixed top-0 left-0 bg-white dark:bg-slate-800 opacity-70 z-50 w-full h-14 flex justify-center items-center transition-colors">
       <div className="flex flex-row justify-between items-center w-full h-full max-w-7xl px-4 text-3xl">
@@ -22,13 +17,7 @@ const Header = () => {
               <a>Posts</a>
             </Link>
           </div>
-          <button onClick={darkModeHandler}>
-            {isDark ? (
-              <LightModeIcon className="text-3xl" />
-            ) : (
-              <DarkModeIcon className="text-3xl" />
-            )}
-          </button>
+          <ThemeModeButton />
         </div>
       </div>
     </nav>
