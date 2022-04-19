@@ -22,7 +22,7 @@ export default function Post({ postData }: Props) {
         <title>{postData.title}</title>
       </Head>
       <div className="flex justify-center">
-        <article className="prose dark:prose-invert prose-lg md:prose-xl 2xl:prose-2xl">
+        <article className="prose prose-img:rounded-3xl dark:prose-invert prose-lg md:prose-xl 2xl:prose-2xl">
           <section className="flex flex-col items-center gap-6">
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
