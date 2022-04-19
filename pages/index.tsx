@@ -11,7 +11,7 @@ interface Props {
 
 export default function Home({ allPostsMetaData }: Props) {
   return (
-    <Layout>
+    <>
       <ProfileCard />
       <h1 className="text-3xl mb-10 text-slate-600 dark:text-white">
         📌 Recent Posts
@@ -24,7 +24,7 @@ export default function Home({ allPostsMetaData }: Props) {
           </a>
         </Link>
       </div>
-    </Layout>
+    </>
   );
 }
 

@@ -17,7 +17,7 @@ export default function Post({ postData }: Props) {
   );
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -33,7 +33,7 @@ export default function Post({ postData }: Props) {
           <Content />
         </article>
       </div>
-    </Layout>
+    </>
   );
 }
 

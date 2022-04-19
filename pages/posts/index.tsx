@@ -11,9 +11,7 @@ interface Props {
 
 export default function Posts({ allPostsMetaData, allTags }: Props) {
   return (
-    <Layout>
-      <PostsPageMain allPostsMetaData={allPostsMetaData} allTags={allTags} />
-    </Layout>
+    <PostsPageMain allPostsMetaData={allPostsMetaData} allTags={allTags} />
   );
 }
 

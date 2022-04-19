@@ -10,11 +10,7 @@ interface Props {
 }
 
 export default function FilteredPosts({ filteredPosts, allTags }: Props) {
-  return (
-    <Layout>
-      <PostsPageMain allPostsMetaData={filteredPosts} allTags={allTags} />
-    </Layout>
-  );
+  return <PostsPageMain allPostsMetaData={filteredPosts} allTags={allTags} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
