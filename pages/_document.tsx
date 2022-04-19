@@ -9,7 +9,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="p-4 max-w-7xl mx-auto font-opensans dark:bg-slate-800 dark:text-white transition-colors">
+      <body className="p-4 max-w-7xl mx-auto font-opensans dark:bg-slate-800 dark:text-white transition-all">
         <Main />
         <NextScript />
       </body>
