@@ -14,7 +14,7 @@ export default function Home({ allPostsMetaData }: Props) {
     <>
       <ProfileCard />
       <h1 className="text-3xl mb-10 text-slate-600 dark:text-white">
-        📌 Recent Posts
+        ⚡️ Recent Posts
       </h1>
       <PostCardList allPostsMetaData={allPostsMetaData} />
       <div className="w-full flex justify-center">
