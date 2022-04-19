@@ -20,7 +20,7 @@ const SearchBar = ({ onChange }: Props) => {
       <input
         value={inputValue}
         onChange={onChangeHandler}
-        className="border-2 dark:border-indigo-500 rounded-2xl w-full px-6 py-3 text-xl outline-none focus:border-indigo-500 dark:focus:border-white dark:bg-slate-500 dark:placeholder:text-slate-800"
+        className="border-4 border-indigo-300 focus:border-indigo-600 rounded-2xl w-full px-6 py-3 text-xl outline-none dark:bg-slate-500 dark:placeholder:text-slate-800"
         placeholder="Search Posts"
       />
     </div>
