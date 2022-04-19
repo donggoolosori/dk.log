@@ -3,16 +3,18 @@ import ProfileInfo from './ProfileInfo';
 import use3dCard from './use3dCard.hook';
 
 const ProfileCard = () => {
-  const { card, cardWrapper, onMouseEnter, onMouseLeave, onMouseMove } =
-    use3dCard();
+  const { card, cardWrapper, onEnter, onLeave, onMove } = use3dCard();
 
   return (
     <div
       ref={cardWrapper}
       className="max-w-[640px] h-[620px] mb-20 mx-auto flex items-center justify-center"
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      onMouseEnter={onMouseEnter}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      onMouseEnter={onEnter}
+      onTouchMove={onMove}
+      onTouchEnd={onLeave}
+      onTouchStart={onEnter}
       style={{ perspective: '1000px' }}
     >
       <section
