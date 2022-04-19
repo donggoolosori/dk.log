@@ -9,7 +9,7 @@ interface Props {
 
 export default function PostImage({ blurCss, coverImg, priority }: Props) {
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-300">
       {blurCss && <BlurImage blurCss={blurCss} />}
       <Image
         src={coverImg}
