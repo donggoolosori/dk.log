@@ -23,13 +23,15 @@ const use3dCard = () => {
   const onMouseLeave = useCallback(() => {
     if (card.current) {
       card.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
-      card.current.style.transition = 'all 1s ease';
+      card.current.style.transition =
+        'transform 1s ease, color 150ms cubic-bezier(0.4, 0, 0.2, 1)';
     }
   }, []);
 
   const onMouseEnter = useCallback(() => {
     if (card.current) {
-      card.current.style.transition = 'all 0.1s ease';
+      card.current.style.transition =
+        'transform 0.1s ease, color 150ms cubic-bezier(0.4, 0, 0.2, 1)';
     }
   }, []);
 
