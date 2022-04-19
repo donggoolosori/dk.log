@@ -6,7 +6,7 @@ const ThemeModeButton = () => {
   const { isDark, darkModeHandler } = useDarkMode();
 
   return (
-    <button onClick={darkModeHandler} className="group">
+    <button onClick={darkModeHandler} className="group p-1">
       {isDark ? (
         <LightModeIcon className="text-3xl group-hover:text-orange-400" />
       ) : (
