@@ -109,7 +109,7 @@ export async function getFrontMatter(id: string, source?: string) {
   let { date, coverImg, description } = data;
   date = formatDate(date);
   description = description || '';
-  coverImg = coverImg || getRandomDefaultImage();
+  coverImg = coverImg || getRandomDefaultImage(id);
 
   const { css } = await getPlaiceholder(coverImg);
 
