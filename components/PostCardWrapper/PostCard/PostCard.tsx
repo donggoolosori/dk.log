@@ -16,7 +16,7 @@ export default function PostCard({
 }: Props) {
   return (
     <Link href={`/posts/${id}`} passHref>
-      <div className="cursor-pointer group min-w-full md:min-w-[40%] xl:min-w-[30%] h-96 rounded-3xl flex flex-col flex-1 gap-2 justify-evenly relative hover:-translate-y-2 transition-transform duration-300 shadow-xl shadow-slate-500 dark:shadow-slate-700">
+      <div className="cursor-pointer group min-w-full md:min-w-[40%] xl:min-w-[30%] h-96 rounded-3xl flex flex-col flex-1 gap-2 justify-evenly relative hover:-translate-y-2 transition-transform duration-300 shadow-xl dark:shadow-lg shadow-slate-500 dark:shadow-black">
         <a className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-3xl brightness-75 dark:brightness-50">
           <PostImage blurCss={blurCss} coverImg={coverImg} />
         </a>
