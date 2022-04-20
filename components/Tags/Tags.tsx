@@ -11,7 +11,7 @@ const Tags = ({ tags }: Props) => {
         <Tag
           key={tag + idx}
           tag={tag}
-          className="hover:bg-blue-400 dark:hover:bg-indigo-800"
+          className="hover:bg-blue-400 dark:hover:bg-purple-700"
         />
       ))}
     </ul>
