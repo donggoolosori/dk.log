@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
+import Comment from '@components/Comment';
 
 interface Props {
   postData: PostData;
@@ -32,6 +33,7 @@ export default function Post({ postData }: Props) {
             </div>
           </section>
           <Content />
+          <Comment />
         </article>
       </div>
     </>
