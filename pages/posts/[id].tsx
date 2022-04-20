@@ -27,7 +27,7 @@ export default function Post({ postData }: Props) {
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
 
-            <FixedRatioContainer className="rounded-3xl shadow-2xl shadow-slate-700 mb-28">
+            <FixedRatioContainer className="group rounded-3xl shadow-2xl shadow-slate-700 mb-28">
               <PostImage coverImg={postData.coverImg} priority />
             </FixedRatioContainer>
           </section>
