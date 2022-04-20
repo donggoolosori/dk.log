@@ -1,1 +1,1 @@
-# [DK.log](https://nextjs-tailwind-blog-dk.vercel.app/)
+# [DK.log](https://dklog.vercel.app/)
