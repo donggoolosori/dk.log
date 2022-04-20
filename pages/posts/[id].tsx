@@ -1,10 +1,10 @@
-import Layout from '@components/layout';
 import PostImage from '@components/PostImage';
 import { getAllPostIds, getPostData, PostData } from '@lib/posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
+import FixedRatioContainer from '@components/FixedRatioContainer';
 
 interface Props {
   postData: PostData;
@@ -26,9 +26,10 @@ export default function Post({ postData }: Props) {
           <section className="flex flex-col items-center gap-6">
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
             <h5>{postData.date}</h5>
-            <div className="group w-full max-w-[672px] h-80 sm:h-[420px] overflow-hidden rounded-3xl shadow-2xl shadow-slate-700 mb-28">
+
+            <FixedRatioContainer className="rounded-3xl shadow-2xl shadow-slate-700 mb-28">
               <PostImage coverImg={postData.coverImg} priority />
-            </div>
+            </FixedRatioContainer>
           </section>
           <Content />
         </article>
