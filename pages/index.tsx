@@ -1,7 +1,6 @@
 import type { GetStaticProps } from 'next';
 import { getSortedPostsMetaData, PostMetaData } from '@lib/posts';
-import Layout from '@components/layout';
-import PostCardList from '@components/PostCardWrapper';
+import PostCardList from '@components/PostCardList';
 import ProfileCard from '@components/ProfileCard';
 import Link from 'next/link';
 

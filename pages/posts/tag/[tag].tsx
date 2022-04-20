@@ -1,4 +1,3 @@
-import Layout from '@components/layout';
 import PostsPageMain from '@components/PostsPageMain';
 import { PostMetaData } from '@lib/posts';
 import { getAllTags, getTagFilteredPosts, Tags } from '@lib/tag';

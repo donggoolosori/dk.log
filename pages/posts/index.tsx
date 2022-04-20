@@ -1,4 +1,3 @@
-import Layout from '@components/layout';
 import { getSortedPostsMetaData, PostMetaData } from '@lib/posts';
 import { getAllTags, Tags } from '@lib/tag';
 import { GetStaticProps } from 'next';

@@ -1,5 +1,5 @@
 import AllTags from '@components/AllTags';
-import PostCardWrapper from '@components/PostCardWrapper';
+import PostCardList from '@components/PostCardList';
 import SearchBar from '@components/SearchBar';
 import { PostMetaData } from '@lib/posts';
 import { Tags } from '@lib/tag';
@@ -17,7 +17,7 @@ const PostsPageMain = ({ allPostsMetaData, allTags }: Props) => {
     <div className="flex flex-col items-center gap-16">
       <SearchBar onChange={searchHandler} />
       <AllTags allTags={allTags} />
-      <PostCardWrapper allPostsMetaData={filteredPosts} />
+      <PostCardList allPostsMetaData={filteredPosts} />
     </div>
   );
 };

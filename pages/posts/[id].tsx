@@ -1,4 +1,3 @@
-import Layout from '@components/layout';
 import PostImage from '@components/PostImage';
 import { getAllPostIds, getPostData, PostData } from '@lib/posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
