@@ -8,9 +8,15 @@ const ThemeModeButton = () => {
   return (
     <button onClick={darkModeHandler} className="group p-1">
       {isDark ? (
-        <LightModeIcon className="text-3xl group-hover:text-orange-400" />
+        <LightModeIcon
+          fontSize="large"
+          className="group-hover:text-orange-400"
+        />
       ) : (
-        <DarkModeIcon className="text-3xl group-hover:text-indigo-500" />
+        <DarkModeIcon
+          fontSize="large"
+          className="group-hover:text-indigo-500"
+        />
       )}
     </button>
   );
