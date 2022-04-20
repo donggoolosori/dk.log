@@ -6,11 +6,14 @@ const ThemeModeButton = () => {
   const { isDark, darkModeHandler } = useDarkMode();
 
   return (
-    <button onClick={darkModeHandler} className="group p-1">
+    <button
+      onClick={darkModeHandler}
+      className="group p-1 flex items-center justify-center"
+    >
       {isDark ? (
-        <LightModeIcon fontSize="large" className="text-orange-400" />
+        <LightModeIcon className="text-orange-400" />
       ) : (
-        <DarkModeIcon fontSize="large" className="text-indigo-500" />
+        <DarkModeIcon className="text-indigo-500" />
       )}
     </button>
   );
