@@ -6,7 +6,7 @@ interface Props {
 
 const Tags = ({ tags }: Props) => {
   return (
-    <ul className="text-sm flex justify-start items-center gap-3 w-full flex-wrap max-h-24 max-w-2xl overflow-y-scroll">
+    <ul className="text-sm flex justify-start items-center gap-3 w-full flex-wrap max-h-24 max-w-2xl overflow-y-scroll scrollbar-hide">
       {tags?.map((tag, idx) => (
         <Tag
           key={tag + idx}
