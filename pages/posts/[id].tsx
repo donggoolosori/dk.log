@@ -35,7 +35,7 @@ export default function Post({ postData }: Props) {
           </section>
           <Content />
           <AdjacentPosts adjacentPosts={postData.adjacentPosts} />
-          <Comment />
+          <Comment id={postData.id} />
         </article>
       </div>
     </>
