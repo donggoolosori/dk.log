@@ -17,8 +17,20 @@ export interface PostMetaData {
   tags?: string[];
 }
 
+interface AdjacentPost {
+  id: string;
+  title: string;
+  date: string;
+}
+
+interface AdjacentPosts {
+  prevPost: AdjacentPost | null;
+  nextPost: AdjacentPost | null;
+}
+
 export interface PostData extends PostMetaData {
-  mdxSource?: any;
+  mdxSource: string;
+  adjacentPosts: AdjacentPosts;
 }
 
 export const postsDir = path.join(process.cwd(), 'posts');
@@ -63,16 +75,47 @@ export function getAllPostIds() {
   });
 }
 
+const getAdjacentPosts = (id: string): AdjacentPosts => {
+  const posts = fs
+    .readdirSync(postsDir)
+    .map((fileName) => {
+      const source = fs.readFileSync(path.join(postsDir, fileName));
+
+      const { title, date } = matter(source).data;
+
+      return {
+        id: fileName.replace(fileExtensionRegex, ''),
+        title,
+        date,
+      };
+    })
+    .sort(({ date: a }, { date: b }) => +new Date(a) - +new Date(b));
+
+  const currPostIndex = posts.findIndex((metaData) => metaData.id === id);
+
+  const prevPost = currPostIndex === 0 ? null : posts[currPostIndex - 1];
+  const nextPost =
+    currPostIndex === posts.length - 1 ? null : posts[currPostIndex + 1];
+
+  return {
+    prevPost,
+    nextPost,
+  };
+};
+
 export async function getPostData(id: string): Promise<PostData> {
   const source = readMdxFile(id);
 
-  const mdxSource = getMdxSource(source);
+  const mdxSource = await getMdxSource(source);
 
   const frontmatter = await getFrontMatter(id, source);
+
+  const adjacentPosts = getAdjacentPosts(id);
 
   return {
     ...frontmatter,
     mdxSource,
+    adjacentPosts,
   } as PostData;
 }
 
