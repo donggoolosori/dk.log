@@ -1,9 +1,9 @@
-import { PostData } from '@lib/posts';
+import { PostMetaData } from '@lib/posts';
 import Link from 'next/link';
 import PostImage from '@components/PostImage';
 import Tags from '@components/Tags';
 
-type Props = PostData;
+type Props = PostMetaData;
 
 export default function PostCard({
   id,
