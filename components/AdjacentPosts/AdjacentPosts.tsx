@@ -18,9 +18,12 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
           ''
         ) : (
           <Link href={`/posts/${prevPost.id}`}>
-            <a className="flex items-center justify-between gap-2 no-underline w-4/5 px-5 py-3 rounded-2xl 1/2 transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
-              <ArrowBackIcon fontSize="large" />
-              <span className="line-clamp-2">{prevPost.title}</span>
+            <a className="flex flex-col items-center justify-start gap-2 no-underline w-4/5 p-3 rounded-2xl 1/2 transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
+              <span className="text-sm text-slate-400">PREVIOUS</span>
+              <div className="flex justify-between items-center gap-6">
+                <ArrowBackIcon fontSize="large" />
+                <span className="line-clamp-1">{prevPost.title}</span>
+              </div>
             </a>
           </Link>
         )}
@@ -30,9 +33,12 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
           ''
         ) : (
           <Link href={`/posts/${nextPost.id}`}>
-            <a className="flex items-center justify-between gap-2 no-underline w-4/5 px-5 py-3 rounded-2xl 1/2 transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
-              <span className="line-clamp-2">{nextPost.title}</span>
-              <ArrowForwardIcon fontSize="large" />
+            <a className="flex flex-col items-center justify-start gap-2 no-underline w-4/5 p-3 rounded-2xl 1/2 transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
+              <span className="text-sm text-slate-400">NEXT</span>
+              <div className="flex justify-between items-center gap-6">
+                <span className="line-clamp-1">{nextPost.title}</span>
+                <ArrowForwardIcon fontSize="large" />
+              </div>
             </a>
           </Link>
         )}
