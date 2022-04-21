@@ -17,9 +17,6 @@ const Comment = () => {
     scriptElem.setAttribute('label', `${label}`);
     scriptElem.crossOrigin = 'anonymous';
 
-    if (commentRef.current) {
-      commentRef.current.innerHTML = '';
-    }
     commentRef.current?.appendChild(scriptElem);
   }, [route]);
 
