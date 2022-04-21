@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-import Comment from '@components/Comment';
+import Utterances from '@components/Utterances';
 import AdjacentPosts from '@components/AdjacentPosts';
 
 interface Props {
@@ -39,7 +39,7 @@ export default function Post({ postData }: Props) {
           </section>
           <Content />
           <AdjacentPosts adjacentPosts={postData.adjacentPosts} />
-          <Comment id={postData.id} />
+          <Utterances />
         </article>
       </div>
     </>
