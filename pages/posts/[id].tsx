@@ -29,7 +29,11 @@ export default function Post({ postData }: Props) {
             <h5>{postData.date}</h5>
             <div className="group relative w-full h-0 overflow-hidden pb-[66.6%] rounded-3xl shadow-2xl shadow-slate-700 mb-28">
               <div className="absolute left-0 top-0 w-full h-full">
-                <PostImage coverImg={postData.coverImg} priority />
+                <PostImage
+                  blurCss={postData.blurCss}
+                  coverImg={postData.coverImg}
+                  priority
+                />
               </div>
             </div>
           </section>
