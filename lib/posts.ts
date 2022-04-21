@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { getPlaiceholder } from 'plaiceholder';
 
-import { getMdxSource } from './mdx';
+import { getMdxSource, readMdxFile } from './mdx';
 import { getRandomDefaultImage } from './image';
 import { formatDate } from '@helpers/formatDate';
 
@@ -64,12 +64,7 @@ export function getAllPostIds() {
 }
 
 export async function getPostData(id: string): Promise<PostData> {
-  const mdPath = path.join(postsDir, `${id}.md`);
-  const mdxPath = path.join(postsDir, `${id}.mdx`);
-
-  const source = fs.existsSync(mdPath)
-    ? fs.readFileSync(mdPath, 'utf-8')
-    : fs.readFileSync(mdxPath, 'utf-8');
+  const source = readMdxFile(id);
 
   const mdxSource = getMdxSource(source);
 
@@ -83,12 +78,7 @@ export async function getPostData(id: string): Promise<PostData> {
 
 export async function getFrontMatter(id: string, source?: string) {
   if (!source) {
-    const mdPath = path.join(postsDir, `${id}.md`);
-    const mdxPath = path.join(postsDir, `${id}.mdx`);
-
-    source = fs.existsSync(mdPath)
-      ? fs.readFileSync(mdPath, 'utf-8')
-      : fs.readFileSync(mdxPath, 'utf-8');
+    source = readMdxFile(id);
   }
 
   const { data } = matter(source);
