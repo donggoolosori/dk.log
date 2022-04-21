@@ -18,14 +18,14 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
           ''
         ) : (
           <Link href={`/posts/${prevPost.id}`}>
-            <a className="flex items-center justify-between gap-3 no-underline w-4/5 p-3 px-6 rounded-2xl transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
-              <ArrowBackIcon fontSize="large" />
-              <div className="flex flex-col justify-center items-center gap-1">
+            <a className="flex flex-col items-center justify-between no-underline w-4/5 p-3 rounded-2xl transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
+              <div className="flex justify-center items-center">
+                <ArrowBackIcon className="text-slate-400" />
                 <span className="text-xs text-slate-400">PREVIOUS</span>
-                <span className="line-clamp-2 sm:line-clamp-1 text-md">
-                  {prevPost.title}
-                </span>
               </div>
+              <span className="line-clamp-2 sm:line-clamp-1 text-md">
+                {prevPost.title}
+              </span>
             </a>
           </Link>
         )}
@@ -35,14 +35,14 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
           ''
         ) : (
           <Link href={`/posts/${nextPost.id}`}>
-            <a className="flex items-center justify-between gap-3 no-underline w-4/5 p-3 px-6 rounded-2xl transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
-              <div className="flex flex-col justify-center items-center gap-1">
+            <a className="flex flex-col items-center justify-between no-underline w-4/5 p-3 rounded-2xl transition-transform hover:-translate-y-2 shadow-slate-500 dark:shadow-black shadow-lg">
+              <div className="flex justify-center items-center">
                 <span className="text-xs text-slate-400">NEXT</span>
-                <span className="line-clamp-2 sm:line-clamp-1 text-md">
-                  {nextPost.title}
-                </span>
+                <ArrowForwardIcon className="text-slate-400" />
               </div>
-              <ArrowForwardIcon fontSize="large" />
+              <span className="line-clamp-2 sm:line-clamp-1 text-md">
+                {nextPost.title}
+              </span>
             </a>
           </Link>
         )}
