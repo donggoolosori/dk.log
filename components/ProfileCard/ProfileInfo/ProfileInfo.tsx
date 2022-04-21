@@ -23,10 +23,10 @@ const ProfileInfo = () => {
         <h2 className="text-lg font-light">{desc}</h2>
       </section>
 
-      <div className="flex items-center text-md gap-3">
+      <a href={`mailto:${email}`} className="flex items-center text-md gap-3">
         <MailOutlineIcon className="text-2xl" />
         <p>{email}</p>
-      </div>
+      </a>
       <a href={githubURL} className="flex items-center text-md gap-3">
         <GitHubIcon className="text-2xl" />
         <p>{githubUserName}</p>
