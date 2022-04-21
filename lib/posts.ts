@@ -23,7 +23,7 @@ interface AdjacentPost {
   date: string;
 }
 
-interface AdjacentPosts {
+export interface AdjacentPosts {
   prevPost: AdjacentPost | null;
   nextPost: AdjacentPost | null;
 }

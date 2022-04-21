@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import Comment from '@components/Comment';
+import AdjacentPosts from '@components/AdjacentPosts';
 
 interface Props {
   postData: PostData;
@@ -21,7 +22,7 @@ export default function Post({ postData }: Props) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <div className="flex justify-center">
+      <div className="flex flex-col justify-center items-center">
         <article className="prose prose-img:rounded-3xl dark:prose-invert prose-lg md:prose-xl 2xl:prose-2xl">
           <section className="flex flex-col items-center gap-6">
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
@@ -33,6 +34,7 @@ export default function Post({ postData }: Props) {
             </div>
           </section>
           <Content />
+          <AdjacentPosts adjacentPosts={postData.adjacentPosts} />
           <Comment />
         </article>
       </div>
