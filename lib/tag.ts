@@ -8,9 +8,9 @@ type Tag = [string, number];
 export type Tags = Tag[];
 
 export const getAllTags = (): Tags => {
-  const allTags: TagCounter = { All: 0 };
-
   const fileNames = fs.readdirSync(postsDir);
+
+  const allTags: TagCounter = { All: fileNames.length };
 
   fileNames.forEach((fileName) => {
     const source = fs.readFileSync(path.join(postsDir, fileName), 'utf-8');
@@ -26,7 +26,6 @@ export const getAllTags = (): Tags => {
         allTags[tag] = 0;
       }
       allTags[tag]++;
-      allTags['All']++;
     });
   });
 
