@@ -1,6 +1,6 @@
 ---
 title: 'Two Forms of Pre-rendering'
-date: '2020-01-01'
+date: '2020-01-02 12:00:00'
 description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad fugit nisi sed? Iusto, deserunt dolores.'
 tags: ['SSR', 'NextJs']
 ---

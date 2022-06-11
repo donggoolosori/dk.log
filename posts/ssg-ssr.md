@@ -1,6 +1,6 @@
 ---
 title: 'When to Use Static Generation v.s. Server-side Rendering'
-date: '2020-01-02'
+date: '2020-01-02 13:00:00'
 description: "You should ask yourself: Can I pre-render this page ahead of a user's request? If the answer is yes, then you should choose Static Generation."
 tags: ['SSG','SSR','NextJs']
 ---
