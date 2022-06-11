@@ -2,6 +2,8 @@ import { getSortedPostsMetaData, PostMetaData } from '@lib/posts';
 import { getAllTags, Tags } from '@lib/tag';
 import { GetStaticProps } from 'next';
 import PostsPageMain from '@components/PostsPageMain';
+import { PageSEO } from '@components/SEO';
+import { postsPageDescription, postsPageTitle } from '@constants/siteMetaData';
 
 interface Props {
   allPostsMetaData: PostMetaData[];
@@ -10,7 +12,10 @@ interface Props {
 
 export default function Posts({ allPostsMetaData, allTags }: Props) {
   return (
-    <PostsPageMain allPostsMetaData={allPostsMetaData} allTags={allTags} />
+    <>
+      <PageSEO title={postsPageTitle} description={postsPageDescription} />
+      <PostsPageMain allPostsMetaData={allPostsMetaData} allTags={allTags} />
+    </>
   );
 }
 
