@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import Utterances from '@components/Utterances';
 import AdjacentPosts from '@components/AdjacentPosts';
+import { PostSEO } from '@components/SEO';
 
 interface Props {
   postData: PostData;
@@ -17,11 +18,11 @@ export default function Post({ postData }: Props) {
     [postData.mdxSource]
   );
 
+  const { title, description, coverImg } = postData;
+
   return (
     <>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
+      <PostSEO title={title} description={description} ogImage={coverImg} />
       <div className="flex flex-col justify-center items-center">
         <article className="prose prose-img:rounded-3xl dark:prose-invert prose-lg md:prose-xl 2xl:prose-2xl">
           <section className="flex flex-col items-center gap-6">

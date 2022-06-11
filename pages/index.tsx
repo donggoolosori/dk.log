@@ -3,6 +3,8 @@ import { getSortedPostsMetaData, PostMetaData } from '@lib/posts';
 import PostCardList from '@components/PostCardList';
 import ProfileCard from '@components/ProfileCard';
 import Link from 'next/link';
+import { PageSEO } from '@components/SEO';
+import { siteDescription, siteTitle } from '@constants/siteMetaData';
 
 interface Props {
   allPostsMetaData: PostMetaData[];
@@ -11,6 +13,7 @@ interface Props {
 export default function Home({ allPostsMetaData }: Props) {
   return (
     <>
+      <PageSEO title={siteTitle} description={siteDescription} />
       <ProfileCard />
       <h1 className="text-3xl mb-10 text-slate-600 dark:text-white">
         ⚡️ Recent Posts
