@@ -11,8 +11,8 @@ const NavigationButtonList = ({ direction = 'row', className = '' }: Props) => {
       className={`flex flex-${direction} gap-6 justify-between items-center ${className}`}
     >
       <NavigationButton href="/" text="Home" />
-      <NavigationButton href="/projects" text="Projects" />
-      <NavigationButton href="/about" text="About" />
+      {/* <NavigationButton href="/projects" text="Projects" />
+      <NavigationButton href="/about" text="About" /> */}
       <NavigationButton href="/posts" text="Posts" />
     </div>
   );
