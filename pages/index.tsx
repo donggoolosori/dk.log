@@ -1,4 +1,4 @@
-import type { GetStaticProps } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { getSortedPostsMetaData, PostMetaData } from '@lib/posts';
 import PostCardList from '@components/PostCardList';
 import ProfileCard from '@components/ProfileCard';
@@ -10,7 +10,7 @@ interface Props {
   allPostsMetaData: PostMetaData[];
 }
 
-export default function Home({ allPostsMetaData }: Props) {
+const Home: NextPage<Props> = ({ allPostsMetaData }) => {
   return (
     <>
       <PageSEO title={siteTitle} description={siteDescription} />
@@ -28,7 +28,7 @@ export default function Home({ allPostsMetaData }: Props) {
       </div>
     </>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsMetaData = await getSortedPostsMetaData({ recent: true });
@@ -39,3 +39,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+export default Home;

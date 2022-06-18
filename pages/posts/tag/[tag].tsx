@@ -1,16 +1,17 @@
 import PostsPageMain from '@components/PostsPageMain';
 import { PostMetaData } from '@lib/posts';
 import { getAllTags, getTagFilteredPosts, Tags } from '@lib/tag';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 interface Props {
   filteredPosts: PostMetaData[];
   allTags: Tags;
 }
-
-export default function FilteredPosts({ filteredPosts, allTags }: Props) {
+const FilteredPosts: NextPage<Props> = ({ filteredPosts, allTags }) => {
   return <PostsPageMain allPostsMetaData={filteredPosts} allTags={allTags} />;
-}
+};
+
+export default FilteredPosts;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags();

@@ -1,6 +1,6 @@
 import PostImage from '@components/PostImage';
 import { getAllPostIds, getPostData, PostData } from '@lib/posts';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
@@ -12,7 +12,7 @@ interface Props {
   postData: PostData;
 }
 
-export default function Post({ postData }: Props) {
+const Post: NextPage<Props> = ({ postData }) => {
   const Content = useMemo(
     () => getMDXComponent(postData.mdxSource),
     [postData.mdxSource]
@@ -45,7 +45,9 @@ export default function Post({ postData }: Props) {
       </div>
     </>
   );
-}
+};
+
+export default Post;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
