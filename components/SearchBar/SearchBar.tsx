@@ -1,11 +1,11 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 
 interface Props {
   onChange?: any;
 }
 
-const SearchBar = ({ onChange }: Props) => {
+const SearchBar: FC<Props> = ({ onChange }) => {
   const [inputValue, setInputValue] = useState<string>('');
 
   const onChangeHandler = (e: ChangeEvent) => {

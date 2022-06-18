@@ -2,7 +2,7 @@ import { PostMetaData } from '@lib/posts';
 import { useRouter } from 'next/router';
 import { ChangeEvent, useEffect, useState, useTransition } from 'react';
 
-export default function usePostSearch(posts: PostMetaData[]) {
+const usePostSearch = (posts: PostMetaData[]) => {
   const [filteredPosts, setFilteredPosts] = useState<PostMetaData[]>([]);
 
   const route = useRouter().asPath;
@@ -30,4 +30,6 @@ export default function usePostSearch(posts: PostMetaData[]) {
   };
 
   return { isLoading, filteredPosts, searchHandler };
-}
+};
+
+export default usePostSearch;

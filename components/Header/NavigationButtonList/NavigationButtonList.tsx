@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import NavigationButton from '../NavigationButton/NavigationButton';
 
 interface Props {
@@ -5,7 +6,10 @@ interface Props {
   className?: string;
 }
 
-const NavigationButtonList = ({ direction = 'row', className = '' }: Props) => {
+const NavigationButtonList: FC<Props> = ({
+  direction = 'row',
+  className = '',
+}) => {
   return (
     <div
       className={`flex flex-${direction} gap-6 justify-between items-center ${className}`}

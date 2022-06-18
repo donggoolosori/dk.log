@@ -3,12 +3,13 @@ import Link from 'next/link';
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FC } from 'react';
 
 interface Props {
   adjacentPosts: AdjacentPosts;
 }
 
-const AdjacentPosts = ({ adjacentPosts }: Props) => {
+const AdjacentPosts: FC<Props> = ({ adjacentPosts }) => {
   const { prevPost, nextPost } = adjacentPosts;
 
   return (

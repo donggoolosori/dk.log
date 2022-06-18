@@ -1,11 +1,12 @@
 import { PostMetaData } from '@lib/posts';
+import { FC } from 'react';
 import PostCard from './PostCard';
 
 interface Props {
   allPostsMetaData: PostMetaData[];
 }
 
-export default function PostCardList({ allPostsMetaData }: Props) {
+const PostCardList: FC<Props> = ({ allPostsMetaData }) => {
   return (
     <div className="flex flex-wrap gap-8">
       {allPostsMetaData?.map((props) => (
@@ -13,4 +14,6 @@ export default function PostCardList({ allPostsMetaData }: Props) {
       ))}
     </div>
   );
-}
+};
+
+export default PostCardList;
