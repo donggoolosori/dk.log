@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { FC } from 'react';
 import BlurImage from './BlurImage';
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
   priority?: boolean;
 }
 
-export default function PostImage({ blurCss, coverImg, priority }: Props) {
+const PostImage: FC<Props> = ({ blurCss, coverImg, priority }) => {
   return (
     <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-300">
       {blurCss && <BlurImage blurCss={blurCss} />}
@@ -20,4 +21,6 @@ export default function PostImage({ blurCss, coverImg, priority }: Props) {
       />
     </div>
   );
-}
+};
+
+export default PostImage;

@@ -1,11 +1,12 @@
 import Tag from '@components/Tag';
 import { Tags } from '@lib/tag';
+import { FC } from 'react';
 
 interface Props {
   allTags: Tags;
 }
 
-const AllTags = ({ allTags }: Props) => {
+const AllTags: FC<Props> = ({ allTags }) => {
   return (
     <div className="flex flex-wrap gap-3 max-w-3xl">
       {allTags.map((tag, idx) => (

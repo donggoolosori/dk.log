@@ -1,4 +1,4 @@
-import { blogDesc, siteTitle } from '@constants/blog';
+import { siteDescription, siteTitle } from '@constants/siteMetaData';
 import { email, githubURL, instagramURL } from '@constants/profile';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -20,7 +20,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="w-full flex justify-center">
-        <p>{`Copyright © 2022 • ${siteTitle} - ${blogDesc}`}</p>
+        <p>{`Copyright © 2022 • ${siteTitle} - ${siteDescription}`}</p>
       </div>
     </div>
   );

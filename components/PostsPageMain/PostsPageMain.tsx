@@ -3,6 +3,7 @@ import PostCardList from '@components/PostCardList';
 import SearchBar from '@components/SearchBar';
 import { PostMetaData } from '@lib/posts';
 import { Tags } from '@lib/tag';
+import { FC } from 'react';
 import usePostSearch from './usePostSearch.hook';
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
   allTags: Tags;
 }
 
-const PostsPageMain = ({ allPostsMetaData, allTags }: Props) => {
+const PostsPageMain: FC<Props> = ({ allPostsMetaData, allTags }) => {
   const { filteredPosts, searchHandler } = usePostSearch(allPostsMetaData);
 
   return (

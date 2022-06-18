@@ -2,10 +2,11 @@ import { PostMetaData } from '@lib/posts';
 import Link from 'next/link';
 import PostImage from '@components/PostImage';
 import Tags from '@components/Tags';
+import { FC } from 'react';
 
 type Props = PostMetaData;
 
-export default function PostCard({
+const PostCard: FC<Props> = ({
   id,
   title,
   date,
@@ -13,7 +14,7 @@ export default function PostCard({
   description,
   blurCss,
   tags,
-}: Props) {
+}) => {
   return (
     <Link href={`/posts/${id}`} passHref>
       <div className="cursor-pointer group min-w-full md:min-w-[40%] xl:min-w-[30%] h-96 rounded-3xl flex flex-col flex-1 gap-2 relative shadow-xl dark:shadow-lg shadow-slate-500 dark:shadow-black">
@@ -31,4 +32,6 @@ export default function PostCard({
       </div>
     </Link>
   );
-}
+};
+
+export default PostCard;

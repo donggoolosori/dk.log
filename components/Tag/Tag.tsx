@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FC } from 'react';
 
 interface Props {
   tag: string;
@@ -6,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-const Tag = ({ tag, count, className }: Props) => {
+const Tag: FC<Props> = ({ tag, count, className }) => {
   return (
     <Link href={tag === 'All' ? '/posts' : `/posts/tag/${tag}`}>
       <a

@@ -1,7 +1,9 @@
+import { FC } from 'react';
+
 interface Props {
   blurCss: any;
 }
-export default function BlurImage({ blurCss }: Props) {
+const BlurImage: FC<Props> = ({ blurCss }) => {
   return (
     <div
       style={{
@@ -11,4 +13,6 @@ export default function BlurImage({ blurCss }: Props) {
       className="scale-150 w-full h-full"
     />
   );
-}
+};
+
+export default BlurImage;

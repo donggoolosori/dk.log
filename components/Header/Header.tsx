@@ -1,4 +1,4 @@
-import { blogName } from '@constants/blog';
+import { siteName } from '@constants/siteMetaData';
 import Menu from './Menu';
 import NavigationButton from './NavigationButton';
 import NavigationButtonList from './NavigationButtonList';
@@ -10,7 +10,7 @@ const Header = () => {
       <div className="flex flex-row justify-between items-center w-full h-full max-w-7xl px-4">
         <NavigationButton
           href="/"
-          text={blogName}
+          text={siteName}
           className="font-bold text-3xl"
         />
 
