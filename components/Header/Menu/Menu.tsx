@@ -12,16 +12,17 @@ const Menu = () => {
 
   return (
     <div className="block sm:hidden">
-      <button onClick={onClick}>
+      <button onClick={onClick} aria-label="Show Menu">
         <MenuIcon fontSize="large" />
       </button>
       <div
         className={`${
           isOpened ? 'absolute' : 'hidden'
         } top-0 left-0 w-screen h-screen bg-black opacity-90`}
-        onClick={onClick}
-      >
-        <button className="absolute right-4 h-14 text-white">
+        onClick={onClick}>
+        <button
+          className="absolute right-4 h-14 text-white"
+          aria-label="Close Menu">
           <CloseIcon fontSize="large" />
         </button>
         <div className="w-full h-full flex flex-col justify-center items-center">
