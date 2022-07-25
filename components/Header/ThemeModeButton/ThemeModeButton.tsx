@@ -9,7 +9,7 @@ const ThemeModeButton = () => {
     <button
       onClick={darkModeHandler}
       className="group p-1 flex items-center justify-center"
-    >
+      aria-label="Toggle Dark Mode">
       {isDark ? (
         <LightModeIcon className="text-orange-400" />
       ) : (

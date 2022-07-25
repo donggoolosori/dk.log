@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dklog.vercel.com
+
+# Sitemaps
+Sitemap: https://dklog.vercel.com/sitemap.xml
