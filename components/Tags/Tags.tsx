@@ -7,7 +7,7 @@ interface Props {
 
 const Tags: FC<Props> = ({ tags }) => {
   return (
-    <ul className="text-sm flex justify-start items-center gap-3 w-full flex-wrap max-h-24 max-w-2xl overflow-y-scroll scrollbar-hide">
+    <div className="text-sm flex justify-start items-center gap-3 w-full flex-wrap max-h-24 max-w-2xl overflow-y-scroll scrollbar-hide">
       {tags?.map((tag, idx) => (
         <Tag
           key={tag + idx}
@@ -15,7 +15,7 @@ const Tags: FC<Props> = ({ tags }) => {
           className="hover:bg-blue-400 dark:hover:bg-indigo-700"
         />
       ))}
-    </ul>
+    </div>
   );
 };
 
