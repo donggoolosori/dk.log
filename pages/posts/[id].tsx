@@ -27,7 +27,7 @@ const Post: NextPage<Props> = ({ postData }) => {
         <article className="prose prose-img:rounded-3xl dark:prose-invert prose-lg md:prose-xl 2xl:prose-2xl">
           <section className="flex flex-col items-center gap-6">
             <h1 style={{ margin: 0 }}>{postData.title}</h1>
-            <h5>{postData.date}</h5>
+            <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{postData.date}</h2>
             <div className="group relative w-full h-0 overflow-hidden pb-[66.6%] rounded-3xl shadow-2xl shadow-slate-700 mb-28">
               <div className="absolute left-0 top-0 w-full h-full">
                 <PostImage
