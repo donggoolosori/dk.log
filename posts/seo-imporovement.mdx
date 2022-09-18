@@ -1,0 +1,234 @@
+---
+title: '블로그의 SEO를 100점까지 개선해보자'
+date: '2022-09-18'
+description: 'lighthouse를 통해 seo를 측정하고, 100점까지 점수를 개선해보자'
+tags: ['seo', 'optimization']
+---
+
+## tl;dr
+
+- Lighthouse로 SEO 점수를 측정한 결과 80점이 나왔다.
+- SEO 컴포넌트를 추가하여, 페이지 별로 적절한 meta 태그를 추가해줬다. 그 결과 모든 페이지의 SEO 점수를 90점 이상까지 향상시킬 수 있었다.
+- a태그에는 href가 존재해야 한다. 그렇지 않으면 SEO 점수에 악영향을 준다.
+
+## Lighthouse로 블로그의 SEO 점수를 측정해보자
+
+블로그의 기능들을 어느정도 개발하고 lighthouse 성능 측정을 해봤습니다.
+
+### 홈페이지 `index.tsx`
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 19 50"
+  src="https://user-images.githubusercontent.com/53213397/190890097-59d3f0f2-4272-4f96-bcaa-2f41b34ef987.png"
+/>
+
+### 포스팅 페이지 `posts/[id].tsx`
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 19 21"
+  src="https://user-images.githubusercontent.com/53213397/190890096-cb14e6c9-b6ad-422a-999b-ede3252f13ca.png"
+/>
+
+홈페이지의 경우 80점으로 맘에 들지 않지만, 포스팅 페이지는 아무 작업도 하지 않았는데 90점으로 꽤 준수한 점수가 나옵니다.
+
+하지만 저의 목표는 100점이기 때문에 두 페이지 모두 개선할 필요가 있습니다.
+
+현재 모든 페이지에 meta 태그를 추가해놓지 않은 상태이기 때문에, 두 페이지에서 모두 “문서에 메타 설명이 없음” 이라는 경고가 나타납니다.
+
+우선 meta 태그를 추가하는 일부터 진행해보겠습니다.
+
+## SEO 컴포넌트 구현하기
+
+페이지 별로 적절한 메타태그를 넣어줘야 합니다.
+
+SEO 컴포넌트를 만들어서 이를 사용하는 페이지마다 SEO 컴포넌트에게 자신의 meta 정보를 props로 넘겨주면, 페이지 별로 적절한 메타 태그를 생성할 수 있을 것 같습니다.
+
+홈과 Posts 페이지를 위한 SEO 컴포넌트 (`PageSEO`)와 블로그 글 페이지를 위한 SEO 컴포넌트(`PostSEO`)를 구분해서 구현했습니다.
+
+```tsx
+import Head from 'next/head';
+import { FC } from 'react';
+
+interface BaseSEOProps {
+  title: string;
+  description: string;
+  ogType: string;
+  ogImage: string;
+}
+
+type PageSEOProps = Pick<BaseSEOProps, 'title' | 'description'>;
+
+interface PostSEOProps {
+  title: string;
+  description: string;
+  ogImage: string;
+}
+
+enum SiteType {
+  Website = 'website',
+  Article = 'article',
+}
+
+const BaseSEO: FC<BaseSEOProps> = ({ title, description, ogType, ogImage }) => {
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta
+        name="description"
+        content={description}
+      />
+      <meta
+        property="og:title"
+        content={title}
+      />
+      <meta
+        property="og:description"
+        content={description}
+      />
+      <meta
+        property="og:type"
+        content={ogType}
+      />
+      <meta
+        property="og:image"
+        content={ogImage}
+      />
+    </Head>
+  );
+};
+
+export const PageSEO: FC<PageSEOProps> = ({ title, description }) => {
+  const ogImageURL = '/images/profile.jpg';
+
+  return (
+    <BaseSEO
+      title={title}
+      description={description}
+      ogType={SiteType.Website}
+      ogImage={ogImageURL}
+    />
+  );
+};
+
+export const PostSEO: FC<PostSEOProps> = ({ title, description, ogImage }) => {
+  return (
+    <BaseSEO
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      ogType={SiteType.Article}
+    />
+  );
+};
+```
+
+타입들 때문에 코드가 좀 길어졌지만, 매우 간단합니다.
+
+BaseSEO 컴포넌트는 기본이 되는 meta 태그를 담고있습니다.
+
+해당 컴포넌트들을 여러 SEO 컴포넌트들이 사용하는 구조입니다.
+
+그리고 해당 SEO 컴포넌트들을 각 페이지에 추가해줬습니다.
+
+### 홈 페이지 `index.tsx`
+
+```tsx {4} showLineNumbers
+const Home: NextPage<Props> = ({ allPostsMetaData }) => {
+  return (
+    <>
+      <PageSEO title={siteTitle} description={siteDescription} />
+			...
+```
+
+### 포스팅 페이지 `posts/[id].tsx`
+
+```tsx {11} showLineNumbers
+const Post: NextPage<Props> = ({ postData }) => {
+  const Content = useMemo(
+    () => getMDXComponent(postData.mdxSource),
+    [postData.mdxSource]
+  );
+
+  const { title, description, coverImg } = postData;
+
+  return (
+    <>
+      <PostSEO title={title} description={description} ogImage={coverImg} />
+			...
+```
+
+## SEO 컴포넌트 적용 결과
+
+### 홈 페이지 `index.tsx` : +10
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 35 37"
+  src="https://user-images.githubusercontent.com/53213397/190890095-372149dc-6c3b-4db6-b247-18179a97c1ee.png"
+/>
+
+### 포스팅 페이지 `posts/[id].tsx` : +10
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 36 09"
+  src="https://user-images.githubusercontent.com/53213397/190890094-162e06de-4b51-4a96-8e22-bf2bc0cfaf15.png"
+/>
+
+두 페이지 모두 10점의 점수 향상을 얻을 수 있었습니다.
+
+특히 포스팅 페이지는 100점의 목표를 달성했습니다! 🚀
+
+## 홈 페이지 SEO 점수 100점 만들기
+
+아직 홈 페이지의 SEO 점수는 90점에 머물러있습니다.
+
+“링크를 크롤링할 수 없음”이라는 경고를 해결하면 점수를 향상시킬 수 있을 것 같습니다.
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 42 42"
+  src="https://user-images.githubusercontent.com/53213397/190890093-8a172139-20c1-4258-b5e9-ede5745ecfb3.png"
+/>
+
+자세히 보니 제가 `a` 태그에 `href` 속성을 넣어주지 않고 있네요?
+
+웹 크롤러(검색 봇)가 저의 사이트를 분석할 때 사이트에 존재하는 링크들을 타면서 정보를 수집하게 됩니다.
+
+따라서 `a` 태그에 `href` 속성을 적절히 넣어주는 것은 검색 엔진 최적화에 중요한 요소입니다.
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 43 51"
+  src="https://user-images.githubusercontent.com/53213397/190890092-eeed0fec-dca8-404d-8e48-31386d9eaa9d.png"
+/>
+
+하지만 분명 포스팅으로 이동하는 링크는 정상 작동했기 때문에 위 오류가 의아했습니다.
+
+코드를 확인해보겠습니다.
+
+확인해보니 아래와 같이 포스팅카드의 요소들을 불필요하게 `a` 태그로 생성해주고 있었네요.
+
+해당 `a` 태그들에 `href` 속성이 없었기 때문에 발생한 문제였습니다.
+
+`a` 태그들을 `div` 태그로 수정해주었습니다.
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 57 36"
+  src="https://user-images.githubusercontent.com/53213397/190890091-00df0991-99b7-4569-8440-59d584a9e5ba.png"
+/>
+
+이제 점수를 측정해보겠습니다.
+
+### 홈 페이지 `index.tsx` : +10
+
+<img
+  alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 59 34"
+  src="https://user-images.githubusercontent.com/53213397/190890090-1cc43023-df86-4cfe-9e43-c1ac64631732.png"
+/>
+
+SEO 점수가 100점이 됐습니다!
+
+## 마무리
+
+오늘은 블로그의 SEO 점수를 개선해봤습니다.
+
+페이지 별로 적절한 meta 태그를 넣어주기 위해 SEO 컴포넌트를 구현했고, 불필요한 a태그들을 제거해줬습니다.
+
+다음 포스팅에서는 블로그의 성능 지표를 개선해보도록 하겠습니다.
