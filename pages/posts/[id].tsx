@@ -22,27 +22,30 @@ const Post: NextPage<Props> = ({ postData }) => {
 
   return (
     <>
-      <PostSEO title={title} description={description} ogImage={coverImg} />
-      <div className="flex flex-col justify-center items-center">
-        <article className="prose prose-img:rounded-3xl dark:prose-invert prose-lg md:prose-xl 2xl:prose-2xl">
-          <section className="flex flex-col items-center gap-6">
-            <h1 style={{ margin: 0 }}>{postData.title}</h1>
-            <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{postData.date}</h2>
-            <div className="group relative w-full h-0 overflow-hidden pb-[66.6%] rounded-3xl shadow-2xl shadow-slate-700 mb-28">
-              <div className="absolute left-0 top-0 w-full h-full">
-                <PostImage
-                  blurCss={postData.blurCss}
-                  coverImg={postData.coverImg}
-                  priority
-                />
-              </div>
+      <PostSEO
+        title={title}
+        description={description}
+        ogImage={coverImg}
+      />
+
+      <article className="prose mx-auto prose-img:rounded-3xl dark:prose-invert md:prose-lg lg:prose-xl prose-code:before:content-none prose-code:after:content-none">
+        <section className="flex flex-col items-center gap-6">
+          <h1 style={{ margin: 0 }}>{postData.title}</h1>
+          <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{postData.date}</h2>
+          <div className="group relative w-full h-0 overflow-hidden pb-[66.6%] rounded-3xl shadow-2xl shadow-slate-700 my-8">
+            <div className="absolute left-0 top-0 w-full h-full">
+              <PostImage
+                blurCss={postData.blurCss}
+                coverImg={postData.coverImg}
+                priority
+              />
             </div>
-          </section>
-          <Content />
-          <AdjacentPosts adjacentPosts={postData.adjacentPosts} />
-          <Utterances />
-        </article>
-      </div>
+          </div>
+        </section>
+        <Content />
+        <AdjacentPosts adjacentPosts={postData.adjacentPosts} />
+        <Utterances />
+      </article>
     </>
   );
 };

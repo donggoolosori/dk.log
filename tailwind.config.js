@@ -5,6 +5,22 @@ module.exports = {
   ],
   theme: {
     extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            code: {
+              backgroundColor: theme('colors.gray.200'),
+              borderRadius: theme('borderRadius.sm'),
+              color: theme('colors.red.500'),
+              paddingTop: theme('padding[1]'),
+              paddingRight: theme('padding[1.5]'),
+              paddingBottom: theme('padding[1]'),
+              paddingLeft: theme('padding[1.5]'),
+              borderRadius: theme('borderRadius.md'),
+            },
+          },
+        },
+      }),
       fontFamily: {
         opensans: [
           'Open Sans',
