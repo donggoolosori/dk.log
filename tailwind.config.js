@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './pages/**/*.{js,jsx,ts,tsx}',
@@ -25,10 +27,7 @@ module.exports = {
         opensans: [
           'Open Sans',
           'Noto Sans KR',
-          'sans-serif',
-          '-apple-system',
-          'Segoe UI',
-          'BlinkMacSystemFont',
+          ...defaultTheme.fontFamily.sans,
         ],
         josefinsans: ['Josefin Sans', 'sans-serif'],
       },
