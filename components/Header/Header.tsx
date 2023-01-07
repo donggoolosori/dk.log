@@ -1,13 +1,13 @@
-import { siteName } from '@constants/siteMetaData';
-import Menu from './Menu';
-import NavigationButton from './NavigationButton';
-import NavigationButtonList from './NavigationButtonList';
-import ThemeModeButton from './ThemeModeButton';
+import { siteName } from "@constants/siteMetaData";
+import Menu from "./Menu";
+import NavigationButton from "./NavigationButton";
+import NavigationButtonList from "./NavigationButtonList";
+import ThemeModeButton from "./ThemeModeButton";
 
 const Header = () => {
   return (
     <nav className="fixed top-0 left-0 backdrop-blur-sm bg-white/40 dark:bg-slate-800/40 z-50 w-full h-14 flex justify-center items-center transition-all">
-      <div className="flex flex-row justify-between items-center w-full h-full max-w-7xl px-4">
+      <div className="flex flex-row justify-between items-center w-full h-full max-w-3xl px-4">
         <NavigationButton
           href="/"
           text={siteName}

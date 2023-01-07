@@ -1,8 +1,10 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html className="dark" lang="ko">
+    <Html
+      className="dark"
+      lang="ko">
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&family=Open+Sans:wght@300;400&display=swap"
@@ -13,7 +15,7 @@ export default function Document() {
           content="bXuH9MEJiR1rFsSNrNbO0XjIdEfHwhyCM5QEHZBazBM"
         />
       </Head>
-      <body className="p-4 max-w-7xl mx-auto font-opensans dark:bg-slate-800 dark:text-white transition-all">
+      <body className="p-4 max-w-3xl mx-auto font-opensans dark:bg-slate-800 dark:text-white transition-all">
         <Main />
         <NextScript />
       </body>
