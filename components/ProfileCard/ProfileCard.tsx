@@ -19,7 +19,7 @@ const ProfileCard = () => {
       onTouchStart={onEnter}
       style={{ perspective: "1000px" }}>
       <div className="indicator-item indicator-bottom indicator-end -translate-y-1">
-        <Image src={astronautImage} alt="astronaut" width={180} height={180} />
+        <Image src={astronautImage} alt="astronaut" width={170} height={160} />
       </div>
       <section
         ref={card}

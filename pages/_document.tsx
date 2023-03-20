@@ -13,8 +13,10 @@ export default function Document() {
           content="bXuH9MEJiR1rFsSNrNbO0XjIdEfHwhyCM5QEHZBazBM"
         />
       </Head>
-      <body className="p-4 max-w-3xl mx-auto font-opensans dark:bg-slate-800 dark:text-white transition-all">
-        <Main />
+      <body className="font-opensans bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition-all">
+        <div className="p-4 max-w-3xl mx-auto ">
+          <Main />
+        </div>
         <NextScript />
       </body>
     </Html>
