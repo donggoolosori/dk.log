@@ -16,6 +16,7 @@
     "@mui/material": "^5.6.1",
     "@tailwindcss/line-clamp": "^0.3.1",
     "@types/react-dom": "18",
+    "daisyui": "^2.51.4",
     "esbuild": "^0.14.36",
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^9.0.0",
