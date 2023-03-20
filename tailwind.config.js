@@ -6,7 +6,7 @@ module.exports = {
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
   daisyui: {
-    themes: ["light"],
+    themes: [false],
   },
   theme: {
     extend: {
@@ -36,6 +36,9 @@ module.exports = {
       },
       spacing: {
         100: "25rem",
+      },
+      colors: {
+        "dark-base": "#2A303C",
       },
     },
   },
