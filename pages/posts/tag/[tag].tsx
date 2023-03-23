@@ -1,4 +1,5 @@
 import PostsPageMain from "@components/PostsPageMain";
+import { siteURL } from "@constants/siteMetaData";
 import { PostMetaData } from "@lib/posts";
 import { getAllTags, getTagFilteredPosts, Tags } from "@lib/tag";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -9,19 +10,17 @@ interface Props {
   allTags: Tags;
   siteUrl: string;
 }
-const FilteredPosts: NextPage<Props> = ({ filteredPosts, allTags, siteUrl }) => {
+const FilteredPosts: NextPage<Props> = ({
+  filteredPosts,
+  allTags,
+  siteUrl,
+}) => {
   return (
     <>
       <Head>
-        <link
-          rel="canonical"
-          href={siteUrl}
-        />
+        <link rel="canonical" href={siteUrl} />
       </Head>
-      <PostsPageMain
-        allPostsMetaData={filteredPosts}
-        allTags={allTags}
-      />
+      <PostsPageMain allPostsMetaData={filteredPosts} allTags={allTags} />
     </>
   );
 };
@@ -64,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       filteredPosts,
       allTags,
-      siteUrl: process.env.SITE_URL,
+      siteUrl: siteURL,
     },
   };
 };

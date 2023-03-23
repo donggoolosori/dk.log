@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: process.env.SITE_URL,
+  siteUrl: "https://dklog.vercel.app",
   generateRobotsTxt: true,
 };
 
