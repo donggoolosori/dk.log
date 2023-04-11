@@ -10,7 +10,7 @@ const ProfileCard = () => {
   return (
     <div
       ref={cardWrapper}
-      className="indicator max-w-[640px] h-[620px] mb-20 mx-auto flex items-center justify-center"
+      className="max-w-[640px] h-[620px] mb-20 mx-auto flex items-center justify-center"
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       onMouseEnter={onEnter}
@@ -18,7 +18,7 @@ const ProfileCard = () => {
       onTouchEnd={onLeave}
       onTouchStart={onEnter}
       style={{ perspective: "1000px" }}>
-      <div className="indicator-item indicator-bottom indicator-end -translate-y-1">
+      <div className=" absolute right-0 bottom-0">
         <Image src={astronautImage} alt="astronaut" width={170} height={160} />
       </div>
       <section
