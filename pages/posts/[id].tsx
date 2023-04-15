@@ -13,17 +13,16 @@ interface Props {
 }
 
 const Post: NextPage<Props> = ({ postData }) => {
-  const Content = useMemo(() => getMDXComponent(postData.mdxSource), [postData.mdxSource]);
+  const Content = useMemo(
+    () => getMDXComponent(postData.mdxSource),
+    [postData.mdxSource]
+  );
 
   const { title, description, coverImg } = postData;
 
   return (
     <>
-      <PostSEO
-        title={title}
-        description={description}
-        ogImage={coverImg}
-      />
+      <PostSEO title={title} description={description} ogImage={coverImg} />
 
       <article className="prose dark:prose-invert max-w-none mx-auto prose-img:rounded-3xl prose-code:before:content-none prose-code:after:content-none">
         <section className="flex flex-col items-center gap-6">

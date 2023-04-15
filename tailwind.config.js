@@ -33,6 +33,7 @@ module.exports = {
           ...defaultTheme.fontFamily.sans,
         ],
         josefinsans: ["Josefin Sans", "sans-serif"],
+        pretendard: ["Pretendard Variable", "sans-serif"],
       },
       spacing: {
         100: "25rem",
