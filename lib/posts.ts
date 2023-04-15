@@ -1,11 +1,12 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { getPlaiceholder } from 'plaiceholder';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { getPlaiceholder } from "plaiceholder";
 
-import { getMdxSource, readMdxFile } from './mdx';
-import { getRandomDefaultImage } from './image';
-import { formatDate } from '@helpers/formatDate';
+import { getMdxSource, readMdxFile } from "./mdx";
+import { getRandomDefaultImage } from "./image";
+import { formatDate } from "@helpers/formatDate";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export interface PostMetaData {
   id: string;
@@ -29,11 +30,11 @@ export interface AdjacentPosts {
 }
 
 export interface PostData extends PostMetaData {
-  mdxSource: string;
+  mdxSource: MDXRemoteSerializeResult;
   adjacentPosts: AdjacentPosts;
 }
 
-export const postsDir = path.join(process.cwd(), 'posts');
+export const postsDir = path.join(process.cwd(), "posts");
 
 export const fileExtensionRegex = /\.mdx?$/;
 
@@ -45,7 +46,7 @@ export async function getSortedPostsMetaData(options?: PostDataOption) {
   let fileNames = fs.readdirSync(postsDir);
 
   const promises: Promise<PostMetaData>[] = fileNames.map(async (fileName) => {
-    const id = fileName.replace(fileExtensionRegex, '');
+    const id = fileName.replace(fileExtensionRegex, "");
     const frontmatter = await getFrontMatter(id);
     return frontmatter;
   });
@@ -69,7 +70,7 @@ export function getAllPostIds() {
   return fileNames.map((fileName) => {
     return {
       params: {
-        id: fileName.replace(fileExtensionRegex, ''),
+        id: fileName.replace(fileExtensionRegex, ""),
       },
     };
   });
@@ -84,7 +85,7 @@ const getAdjacentPosts = (id: string): AdjacentPosts => {
       const { title, date } = matter(source).data;
 
       return {
-        id: fileName.replace(fileExtensionRegex, ''),
+        id: fileName.replace(fileExtensionRegex, ""),
         title,
         date,
       };
@@ -128,7 +129,7 @@ export async function getFrontMatter(id: string, source?: string) {
 
   let { date, coverImg, description } = data;
   date = formatDate(date);
-  description = description || '';
+  description = description || "";
   coverImg = coverImg || getRandomDefaultImage(id);
 
   const { css } = await getPlaiceholder(coverImg);

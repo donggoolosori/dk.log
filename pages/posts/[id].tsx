@@ -1,24 +1,17 @@
 import PostImage from "@components/PostImage";
 import { getAllPostIds, getPostData, PostData } from "@lib/posts";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Head from "next/head";
-import { useMemo } from "react";
-import { getMDXComponent } from "mdx-bundler/client";
 import Utterances from "@components/Utterances";
 import AdjacentPosts from "@components/AdjacentPosts";
 import { PostSEO } from "@components/SEO";
+import { MDXRemote } from "next-mdx-remote";
 
 interface Props {
   postData: PostData;
 }
 
 const Post: NextPage<Props> = ({ postData }) => {
-  const Content = useMemo(
-    () => getMDXComponent(postData.mdxSource),
-    [postData.mdxSource]
-  );
-
-  const { title, description, coverImg } = postData;
+  const { title, description, coverImg, mdxSource } = postData;
 
   return (
     <>
@@ -38,7 +31,7 @@ const Post: NextPage<Props> = ({ postData }) => {
             </div>
           </div>
         </section>
-        <Content />
+        <MDXRemote {...mdxSource} />
         <AdjacentPosts adjacentPosts={postData.adjacentPosts} />
         <Utterances />
       </article>
