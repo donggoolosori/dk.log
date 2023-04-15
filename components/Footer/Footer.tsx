@@ -1,9 +1,9 @@
-import { siteTitle } from '@constants/siteMetaData';
-import { email, githubURL, instagramURL } from '@constants/profile';
+import { siteName } from "@constants/siteMetaData";
+import { email, githubURL, instagramURL } from "@constants/profile";
 
-import GitHubIcon from '@mui/icons-material/GitHub';
-import EmailIcon from '@mui/icons-material/Email';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Footer = () => {
   return (
@@ -20,7 +20,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="w-full flex justify-center">
-        <p>{`Copyright © ${new Date().getFullYear()} • ${siteTitle}`}</p>
+        <p>{`Copyright © ${new Date().getFullYear()} • ${siteName}`}</p>
       </div>
     </div>
   );

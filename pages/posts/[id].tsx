@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Utterances from "@components/Utterances";
 import AdjacentPosts from "@components/AdjacentPosts";
 import { PostSEO } from "@components/SEO";
-import { MDXRemote } from "next-mdx-remote";
+import Mdx from "@components/Mdx";
 
 interface Props {
   postData: PostData;
@@ -31,7 +31,7 @@ const Post: NextPage<Props> = ({ postData }) => {
             </div>
           </div>
         </section>
-        <MDXRemote {...mdxSource} />
+        <Mdx source={mdxSource} />
         <AdjacentPosts adjacentPosts={postData.adjacentPosts} />
         <Utterances />
       </article>

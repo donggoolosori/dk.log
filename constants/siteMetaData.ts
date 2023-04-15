@@ -1,6 +1,6 @@
 export const name = "Dongjune";
-export const siteName = "DK.log";
-export const siteTitle = "DK tech blog";
+export const siteName = "DGOS";
+export const siteTitle = "DGOS | Blog";
 export const siteDescription = "Dongjune's dev log";
 export const postsPageTitle = `Posts - ${siteTitle}`;
 export const postsPageDescription = "All Posts";

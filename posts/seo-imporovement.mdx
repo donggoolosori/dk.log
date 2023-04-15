@@ -1,8 +1,8 @@
 ---
-title: '블로그의 SEO를 100점까지 개선해보자'
-date: '2022-09-18'
-description: 'lighthouse를 통해 seo를 측정하고, 100점까지 점수를 개선해보자'
-tags: ['seo', 'optimization']
+title: "블로그의 SEO를 100점까지 개선해보자"
+date: "2022-09-18"
+description: "lighthouse를 통해 seo를 측정하고, 100점까지 점수를 개선해보자"
+tags: ["seo", "optimization"]
 ---
 
 ## tl;dr
@@ -17,14 +17,14 @@ tags: ['seo', 'optimization']
 
 ### 홈페이지 index.tsx
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 19 50"
   src="https://user-images.githubusercontent.com/53213397/190890097-59d3f0f2-4272-4f96-bcaa-2f41b34ef987.png"
 />
 
 ### 포스팅 페이지 posts/[id].tsx
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 19 21"
   src="https://user-images.githubusercontent.com/53213397/190890096-cb14e6c9-b6ad-422a-999b-ede3252f13ca.png"
 />
@@ -46,8 +46,8 @@ SEO 컴포넌트를 만들어서 이를 사용하는 페이지마다 SEO 컴포�
 홈과 Posts 페이지를 위한 SEO 컴포넌트 (`PageSEO`)와 블로그 글 페이지를 위한 SEO 컴포넌트(`PostSEO`)를 구분해서 구현했습니다.
 
 ```tsx
-import Head from 'next/head';
-import { FC } from 'react';
+import Head from "next/head";
+import { FC } from "react";
 
 interface BaseSEOProps {
   title: string;
@@ -56,7 +56,7 @@ interface BaseSEOProps {
   ogImage: string;
 }
 
-type PageSEOProps = Pick<BaseSEOProps, 'title' | 'description'>;
+type PageSEOProps = Pick<BaseSEOProps, "title" | "description">;
 
 interface PostSEOProps {
   title: string;
@@ -65,40 +65,25 @@ interface PostSEOProps {
 }
 
 enum SiteType {
-  Website = 'website',
-  Article = 'article',
+  Website = "website",
+  Article = "article",
 }
 
 const BaseSEO: FC<BaseSEOProps> = ({ title, description, ogType, ogImage }) => {
   return (
     <Head>
       <title>{title}</title>
-      <meta
-        name="description"
-        content={description}
-      />
-      <meta
-        property="og:title"
-        content={title}
-      />
-      <meta
-        property="og:description"
-        content={description}
-      />
-      <meta
-        property="og:type"
-        content={ogType}
-      />
-      <meta
-        property="og:image"
-        content={ogImage}
-      />
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:image" content={ogImage} />
     </Head>
   );
 };
 
 export const PageSEO: FC<PageSEOProps> = ({ title, description }) => {
-  const ogImageURL = '/images/profile.jpg';
+  const ogImageURL = "/images/profile.jpg";
 
   return (
     <BaseSEO
@@ -161,14 +146,14 @@ const Post: NextPage<Props> = ({ postData }) => {
 
 ### 홈 페이지 index.tsx : +10
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 35 37"
   src="https://user-images.githubusercontent.com/53213397/190890095-372149dc-6c3b-4db6-b247-18179a97c1ee.png"
 />
 
 ### 포스팅 페이지 posts/[id].tsx : +10
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 36 09"
   src="https://user-images.githubusercontent.com/53213397/190890094-162e06de-4b51-4a96-8e22-bf2bc0cfaf15.png"
 />
@@ -183,7 +168,7 @@ const Post: NextPage<Props> = ({ postData }) => {
 
 “링크를 크롤링할 수 없음”이라는 경고를 해결하면 점수를 향상시킬 수 있을 것 같습니다.
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 42 42"
   src="https://user-images.githubusercontent.com/53213397/190890093-8a172139-20c1-4258-b5e9-ede5745ecfb3.png"
 />
@@ -194,7 +179,7 @@ const Post: NextPage<Props> = ({ postData }) => {
 
 따라서 `a` 태그에 `href` 속성을 적절히 넣어주는 것은 검색 엔진 최적화에 중요한 요소입니다.
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 43 51"
   src="https://user-images.githubusercontent.com/53213397/190890092-eeed0fec-dca8-404d-8e48-31386d9eaa9d.png"
 />
@@ -209,7 +194,7 @@ const Post: NextPage<Props> = ({ postData }) => {
 
 `a` 태그들을 `div` 태그로 수정해주었습니다.
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 57 36"
   src="https://user-images.githubusercontent.com/53213397/190890091-00df0991-99b7-4569-8440-59d584a9e5ba.png"
 />
@@ -218,7 +203,7 @@ const Post: NextPage<Props> = ({ postData }) => {
 
 ### 홈 페이지 index.tsx : +10
 
-<img
+<MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 59 34"
   src="https://user-images.githubusercontent.com/53213397/190890090-1cc43023-df86-4cfe-9e43-c1ac64631732.png"
 />
