@@ -3,12 +3,32 @@ import fs from "fs";
 import rehypePrismPlus from "rehype-prism-plus";
 import { postsDir } from "./posts";
 import { serialize } from "next-mdx-remote/serialize";
+import remarkToc from "remark-toc";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkBreaks from "remark-breaks";
 
 export const getMdxSource = async (source: string) => {
   const mdxSource = await serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {
-      rehypePlugins: [rehypePrismPlus],
+      rehypePlugins: [
+        rehypePrismPlus,
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            content: {
+              type: "element",
+              tagName: "span",
+              properties: { className: "anchor" },
+              // children: [{ type: "text", value: "# " }],
+            },
+          },
+        ],
+      ],
+      remarkPlugins: [remarkToc, remarkGfm, remarkBreaks],
       format: "mdx",
     },
   });
