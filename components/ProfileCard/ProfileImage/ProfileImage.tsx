@@ -1,5 +1,5 @@
-import { profileImage } from '@constants/profile';
-import Image from 'next/image';
+import { profileImage } from "@constants/profile";
+import Image from "next/image";
 
 const ProfileImage = () => {
   return (
