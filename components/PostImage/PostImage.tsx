@@ -6,19 +6,28 @@ interface Props {
   coverImg: string;
   blurCss?: any;
   priority?: boolean;
+  hoverScaleUp?: boolean;
 }
 
-const PostImage: FC<Props> = ({ blurCss, coverImg, priority }) => {
+const PostImage: FC<Props> = ({
+  blurCss,
+  coverImg,
+  priority,
+  hoverScaleUp,
+}) => {
   return (
-    <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-300">
+    <div
+      className={`relative w-full h-full transition-transform duration-300 ${
+        hoverScaleUp ? "group-hover:scale-110" : ""
+      }`}>
       {blurCss && <BlurImage blurCss={blurCss} />}
       <Image
         src={coverImg}
         alt="cover-image"
-        sizes="100vw"
         fill
+        sizes="100vw"
         priority={priority}
-        className="object-cover"
+        className="object-cover m-0"
       />
     </div>
   );

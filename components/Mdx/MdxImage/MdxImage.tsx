@@ -7,8 +7,15 @@ interface Props {
 
 function MdxImage({ src, alt }: Props) {
   return (
-    <div className="w-full h-auto relative">
-      <Image src={src} alt={alt} sizes="100vw" fill />
+    <div className="w-full relative">
+      <Image
+        src={src}
+        alt={alt}
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="object-cover w-full h-auto m-0"
+      />
     </div>
   );
 }

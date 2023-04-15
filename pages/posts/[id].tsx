@@ -5,6 +5,7 @@ import Utterances from "@components/Utterances";
 import AdjacentPosts from "@components/AdjacentPosts";
 import { PostSEO } from "@components/SEO";
 import Mdx from "@components/Mdx";
+import useDarkMode from "@components/Header/ThemeModeButton/useDarkMode.hook";
 
 interface Props {
   postData: PostData;
@@ -12,23 +13,26 @@ interface Props {
 
 const Post: NextPage<Props> = ({ postData }) => {
   const { title, description, coverImg, mdxSource } = postData;
+  const { isDark } = useDarkMode();
 
   return (
     <>
       <PostSEO title={title} description={description} ogImage={coverImg} />
 
-      <article className="prose dark:prose-invert max-w-none mx-auto prose-img:rounded-3xl prose-code:before:content-none prose-code:after:content-none">
+      <article className="prose dark:prose-invert max-w-none mx-auto prose-h1:mt-20 prose-headings:before:text-blue-400 prose-h1:before:content-['#\00a0'] prose-img:rounded-2xl prose-code:before:content-none prose-code:after:content-none">
         <section className="flex flex-col items-center gap-6">
-          <h1 style={{ margin: 0 }}>{postData.title}</h1>
+          <h1
+            style={{ margin: 0 }}
+            className="before:!content-none !text-black dark:!text-white">
+            {postData.title}
+          </h1>
           <h2 style={{ fontSize: "1.5rem", margin: 0 }}>{postData.date}</h2>
-          <div className="group relative w-full h-0 overflow-hidden pb-[66.6%] rounded-3xl shadow-2xl shadow-slate-700 my-8">
-            <div className="absolute left-0 top-0 w-full h-full">
-              <PostImage
-                blurCss={postData.blurCss}
-                coverImg={postData.coverImg}
-                priority
-              />
-            </div>
+          <div className="group relative w-full h-80 sm:h-[28rem] rounded-3xl shadow-2xl shadow-slate-700 my-16">
+            <PostImage
+              blurCss={postData.blurCss}
+              coverImg={postData.coverImg}
+              priority
+            />
           </div>
         </section>
         <Mdx source={mdxSource} />

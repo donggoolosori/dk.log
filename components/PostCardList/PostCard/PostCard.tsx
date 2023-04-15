@@ -26,7 +26,7 @@ const PostCard: FC<Props> = ({
       onClick={onClick}
       className="cursor-pointer group max-w-[400px] min-w-[300px] h-96 rounded-3xl flex flex-col flex-1 gap-2 relative shadow-xl dark:shadow-lg shadow-slate-500 dark:shadow-black">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-3xl brightness-75 dark:brightness-50">
-        <PostImage blurCss={blurCss} coverImg={coverImg} />
+        <PostImage blurCss={blurCss} coverImg={coverImg} hoverScaleUp />
       </div>
       <section className="z-10 w-full h-full flex flex-col justify-end gap-8 px-10 pb-8 text-slate-50">
         <Tags tags={tags} />

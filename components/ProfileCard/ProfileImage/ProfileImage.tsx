@@ -8,7 +8,7 @@ const ProfileImage = () => {
         src={profileImage}
         alt="profile-image"
         priority
-        sizes="100vw"
+        sizes="100%"
         fill
         className="object-cover"
       />

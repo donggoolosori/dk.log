@@ -5,24 +5,24 @@ description: "lighthouse를 통해 seo를 측정하고, 100점까지 점수를 �
 tags: ["seo", "optimization"]
 ---
 
-## tl;dr
+# tl;dr
 
 - Lighthouse로 SEO 점수를 측정한 결과 80점이 나왔다.
 - SEO 컴포넌트를 추가하여, 페이지 별로 적절한 meta 태그를 추가해줬다. 그 결과 모든 페이지의 SEO 점수를 90점 이상까지 향상시킬 수 있었다.
 - a태그에는 href가 존재해야 한다. 그렇지 않으면 SEO 점수에 악영향을 준다.
 
-## Lighthouse로 블로그의 SEO 점수를 측정해보자
+# Lighthouse로 블로그의 SEO 점수를 측정해보자
 
 블로그의 기능들을 어느정도 개발하고 lighthouse 성능 측정을 해봤습니다.
 
-### 홈페이지 index.tsx
+## 홈페이지 index.tsx
 
 <MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 19 50"
   src="https://user-images.githubusercontent.com/53213397/190890097-59d3f0f2-4272-4f96-bcaa-2f41b34ef987.png"
 />
 
-### 포스팅 페이지 posts/[id].tsx
+## 포스팅 페이지 posts/[id].tsx
 
 <MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 19 21"
@@ -37,7 +37,7 @@ tags: ["seo", "optimization"]
 
 우선 meta 태그를 추가하는 일부터 진행해보겠습니다.
 
-## SEO 컴포넌트 구현하기
+# SEO 컴포넌트 구현하기
 
 페이지 별로 적절한 메타태그를 넣어줘야 합니다.
 
@@ -115,7 +115,7 @@ BaseSEO 컴포넌트는 기본이 되는 meta 태그를 담고있습니다.
 
 그리고 해당 SEO 컴포넌트들을 각 페이지에 추가해줬습니다.
 
-### 홈 페이지 index.tsx
+## 홈 페이지 index.tsx
 
 ```tsx {4} showLineNumbers
 const Home: NextPage<Props> = ({ allPostsMetaData }) => {
@@ -142,16 +142,16 @@ const Post: NextPage<Props> = ({ postData }) => {
 			...
 ```
 
-## SEO 컴포넌트 적용 결과
+# SEO 컴포넌트 적용 결과
 
-### 홈 페이지 index.tsx : +10
+## 홈 페이지 index.tsx : +10
 
 <MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 35 37"
   src="https://user-images.githubusercontent.com/53213397/190890095-372149dc-6c3b-4db6-b247-18179a97c1ee.png"
 />
 
-### 포스팅 페이지 posts/[id].tsx : +10
+## 포스팅 페이지 posts/[id].tsx : +10
 
 <MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 36 09"
@@ -201,7 +201,7 @@ const Post: NextPage<Props> = ({ postData }) => {
 
 이제 점수를 측정해보겠습니다.
 
-### 홈 페이지 index.tsx : +10
+## 홈 페이지 index.tsx : +10
 
 <MdxImage
   alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-09-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3 59 34"
@@ -210,7 +210,7 @@ const Post: NextPage<Props> = ({ postData }) => {
 
 SEO 점수가 100점이 됐습니다!
 
-## 마무리
+# 마무리
 
 오늘은 블로그의 SEO 점수를 개선해봤습니다.
 

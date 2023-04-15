@@ -21,6 +21,7 @@ const Header = () => {
             alt="navbar astrounaut"
             width={40}
             height={40}
+            priority
           />
         </div>
 
