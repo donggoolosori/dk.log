@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import { FC } from 'react';
-import BlurImage from './BlurImage';
+import Image from "next/image";
+import { FC } from "react";
+import BlurImage from "./BlurImage";
 
 interface Props {
   coverImg: string;
@@ -15,9 +15,10 @@ const PostImage: FC<Props> = ({ blurCss, coverImg, priority }) => {
       <Image
         src={coverImg}
         alt="cover-image"
-        layout="fill"
-        objectFit="cover"
+        sizes="100vw"
+        fill
         priority={priority}
+        className="object-cover"
       />
     </div>
   );
