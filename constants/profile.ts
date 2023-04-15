@@ -1,4 +1,4 @@
-export const profileImage = "/images/profile4.jpeg";
+export const profileImage = "/images/profile5.png";
 export const astronautImage = "/images/space.gif";
 export const name = "Dongjune Kim";
 export const desc = "Frontend developer";
