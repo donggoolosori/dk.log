@@ -17,7 +17,7 @@ const Post: NextPage<Props> = ({ postData }) => {
     <>
       <PostSEO title={title} description={description} ogImage={coverImg} />
 
-      <article className="prose prose-a:no-underline prose-a:text-blue-400 dark:prose-invert max-w-none mx-auto prose-h1:mt-20 prose-headings:before:text-blue-400 prose-h1:before:content-['#\00a0'] prose-img:rounded-2xl prose-code:before:content-none prose-code:after:content-none">
+      <article className="prose prose-a:no-underline dark:prose-invert max-w-none mx-auto prose-h1:mt-20 prose-headings:before:text-blue-400 prose-h1:before:content-['#\00a0'] prose-img:rounded-2xl prose-code:before:content-none prose-code:after:content-none">
         <section className="flex flex-col items-center gap-6">
           <h1 style={{ margin: 0 }} className="before:!content-none">
             {postData.title}
