@@ -7,7 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col mt-20 mb-10 text-slate-600 dark:text-white gap-4">
+    <div className="flex flex-col mt-20 mb-10 gap-4">
       <div className="flex justify-center gap-4">
         <a href={githubURL} aria-label="github link">
           <GitHubIcon />
