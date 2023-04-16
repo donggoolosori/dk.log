@@ -6,7 +6,7 @@ module.exports = {
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
   daisyui: {
-    themes: [false],
+    themes: ["light", "dark"],
   },
   theme: {
     extend: {

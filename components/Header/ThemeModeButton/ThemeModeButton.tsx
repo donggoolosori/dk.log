@@ -1,16 +1,16 @@
-import useDarkMode from './useDarkMode.hook';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import useDarkMode from "hooks/useDarkMode.hook";
 
 const ThemeModeButton = () => {
-  const { isDark, darkModeHandler } = useDarkMode();
+  const { theme, toggleTheme } = useDarkMode();
 
   return (
     <button
-      onClick={darkModeHandler}
+      onClick={toggleTheme}
       className="group p-1 flex items-center justify-center"
       aria-label="Toggle Dark Mode">
-      {isDark ? (
+      {theme === "light" ? (
         <LightModeIcon className="text-orange-400" />
       ) : (
         <DarkModeIcon className="text-indigo-500" />

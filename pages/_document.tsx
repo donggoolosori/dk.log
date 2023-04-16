@@ -17,7 +17,7 @@ export default function Document() {
           content="bXuH9MEJiR1rFsSNrNbO0XjIdEfHwhyCM5QEHZBazBM"
         />
       </Head>
-      <body className="p-4 max-w-3xl mx-auto font-pretendard bg-white dark:bg-dark-base text-gray-800 dark:text-white transition-all">
+      <body className="p-4 max-w-3xl mx-auto font-pretendard transition-all">
         <Main />
         <NextScript />
       </body>

@@ -1,25 +1,32 @@
 import { label, repo } from "@constants/utterances";
+import { useEffect, useRef } from "react";
 
 const Utterances = () => {
-  return (
-    <section
-      ref={(element) => {
-        if (!element) return;
+  const ref = useRef<HTMLElement>(null);
 
-        const script = document.createElement("script");
+  useEffect(() => {
+    const script = document.createElement("script");
 
-        script.setAttribute("src", "https://utteranc.es/client.js");
-        script.setAttribute("async", "true");
-        script.setAttribute("repo", `${repo}`);
-        script.setAttribute("issue-term", "pathname");
-        script.setAttribute("theme", "github-light");
-        script.setAttribute("label", `${label}`);
-        script.setAttribute("crossorigin", "anonymous");
+    const config = {
+      src: "https://utteranc.es/client.js",
+      repo,
+      label,
+      "issue-term": "pathname",
+      theme: "github-light",
+      crossorigin: "anonymous",
+      async: "true",
+    };
 
-        element.replaceChildren(script);
-      }}
-    />
-  );
+    Object.entries(config).forEach(([key, value]) => {
+      script.setAttribute(key, value);
+    });
+
+    if (ref.current && ref.current.childElementCount === 0) {
+      ref.current.appendChild(script);
+    }
+  }, []);
+
+  return <section ref={ref} />;
 };
 
 export default Utterances;
