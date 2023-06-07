@@ -1,0 +1,62 @@
+---
+title: "운영체제의 hard link와 symbolic link"
+date: "2023-06-07"
+description: "hard link와 symbolic link 이해하기"
+tags: ["seo", "optimization"]
+---
+
+# TOC
+
+# tl;dr
+
+- hard link는 file의 data에 대한 참조를 가리키고 있습니다.
+- symlink는 file의 path를 저장하고 있습니다.
+- hard link는 원본 file과 동일한 접근 권한을 갖습니다.
+- symlink는 원본 file의 path를 가리키고 있기 때문에 원본 file과 동일한 접근 권한을 갖지 않습니다.
+- hard link는 원본 file이 삭제되어도 남아있는 link들은 data에 대한 접근 권한을 갖습니다.
+- symlink는 원본 file이 삭제되면 dangling symlink가 됩니다.
+
+# Hard link
+
+hard link는 파일의 데이터에 대한 참조 또는 포인터입니다.
+
+만약 제가 A 파일의 hard link를 생성했다고 가정해보겠습니다. 그럼 해당 hard link는 원본 파일과 data에 대한 동일한 접근 권한을 갖습니다. 즉 hard link는 원본 파일과 구분할 수 없습니다. 원본파일과 hard link 중 하나를 삭제한다고 해도 남아있는 다른 link의 data access에는 영향을 주지 않습니다.
+
+내부 구현을 자세히 살펴봤을 때, hard link는 사실 파일의 inode라는 녀석을 가리키고 있습니다. inode는 다음과 같은 파일의 **metadata**를 갖고 있습니다.
+
+- File size
+- Device ID
+- User ID of the file (owner)
+- Group ID of the file
+- The file mode (read, write, execute permissions, and type of file)
+- Timestamps representing the file creation, last modification, and last access time
+- Pointers to the disk blocks that store the file's data
+
+중요한 점은 inode는 file의 이름이나 directory의 경로를 갖지 않는다는 것입니다. 이 정보들은 **directory entry**에 저장됩니다.
+
+## directory entry의 구성
+
+```
+| Filename     | Inode Number |
+| ------------ | ------------ |
+| file1.txt    | 123          |
+| image.png    | 124          |
+| notes.doc    | 125          |
+| myfolder     | 126          |
+```
+
+위와 같이 directory entry는 filename과 inode number를 연결해주는 역할을 합니다.
+
+만약 새로운 hard link 하나를 생성한다면, directory entry에 file name과 inode number 쌍이 추가되게 됩니다.
+
+이때 하나의 inode에 대해 여러개의 hard link가 존재할 수 있습니다. 그로 인해 hard link들은 서로 영향을 주지 않으면서 file의 data에 대한 동일한 접근 권한을 갖게 됩니다.
+
+# Symlink (or softlink)
+
+Symbolic link도 file을 가리키고 있지만 hard link와 그 방식이 다릅니다.
+
+hard link는 하나의 inode를 가리키고 있습니다. 반면에 symlink는 text string을 저장하고 있는 특수한 type의 file입니다. 이 text string은 다른 file이나 directory의 path를 나타냅니다. OS가 symlink를 만나면 해당 symlink의 text string을 path로 인식하고 target file 또는 directory의 경로를 따라가게됩니다.
+
+symlink는 target의 어떠한 정보도 저장하지 않고 오직 target의 path만을 저장합니다. 따라서 target의 위치가 옮겨질 경우, symlink는 파일이 옮겨졌다는 정보를 모른 채 **“dangling symlink”**가 됩니다.
+
+> dangling symlink: 더 이상 존재하지 않는 file이나 directory를 가리키는 symlink. broken symlink라고도 표현한다.
