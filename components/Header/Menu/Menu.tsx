@@ -14,8 +14,11 @@ const Menu = () => {
 
   return (
     <div className="block sm:hidden">
-      <button onClick={onClick} aria-label="Show Menu">
-        <AiOutlineMenu fontSize="large" />
+      <button
+        onClick={onClick}
+        aria-label="Show Menu"
+        className="flex items-center justify-center">
+        <AiOutlineMenu size={24} />
       </button>
       <div
         className={`${

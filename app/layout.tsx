@@ -26,10 +26,10 @@ export default function RootLayout({
         />
         <link rel="icon" type="image/gif" href={astronautImage} />
       </head>
-      <body className="p-4 max-w-3xl mx-auto font-pretendard transition-all">
+      <body className="p-4 font-pretendard transition-all">
         <ThemeProvider>
           <Header />
-          <div className=" py-10" />
+          <div className="py-10" />
           {children}
         </ThemeProvider>
       </body>
