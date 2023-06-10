@@ -12,8 +12,8 @@ import {
 // icons
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub";
-import { GrLocation } from "@react-icons/all-files/gr/GrLocation";
 import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
+import { ImLocation } from "@react-icons/all-files/im/ImLocation";
 
 const ProfileInfo = () => {
   return (
@@ -36,7 +36,7 @@ const ProfileInfo = () => {
         <p>{instagramUserName}</p>
       </a>
       <div className="flex items-center text-md gap-3">
-        <GrLocation className="text-2xl" />
+        <ImLocation className="text-2xl" />
         <p>{location}</p>
       </div>
     </div>
