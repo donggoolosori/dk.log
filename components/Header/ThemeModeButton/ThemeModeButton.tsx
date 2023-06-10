@@ -16,16 +16,6 @@ const ThemeModeButton = () => {
       <HiSun className="text-orange-400 swap-on" size={28} />
       <HiMoon className="text-indigo-500 swap-off" size={28} />
     </label>
-    // <button
-    //   onClick={toggleTheme}
-    //   className="group p-1 flex items-center justify-center"
-    //   aria-label="Toggle Dark Mode">
-    //   {theme === "light" ? (
-    //     <HiMoon className="text-indigo-500" />
-    //   ) : (
-    //     <HiSun className="text-orange-400" />
-    //   )}
-    // </button>
   );
 };
 
