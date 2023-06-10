@@ -1,8 +1,8 @@
 "use client";
 
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import useDarkMode from "hooks/useDarkMode.hook";
+import { HiSun } from "@react-icons/all-files/hi/HiSun";
+import { HiMoon } from "@react-icons/all-files/hi/HiMoon";
 
 const ThemeModeButton = () => {
   const { theme, toggleTheme } = useDarkMode();
@@ -13,9 +13,9 @@ const ThemeModeButton = () => {
       className="group p-1 flex items-center justify-center"
       aria-label="Toggle Dark Mode">
       {theme === "light" ? (
-        <LightModeIcon className="text-orange-400" />
+        <HiMoon className="text-indigo-500" />
       ) : (
-        <DarkModeIcon className="text-indigo-500" />
+        <HiSun className="text-orange-400" />
       )}
     </button>
   );

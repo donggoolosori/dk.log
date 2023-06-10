@@ -7,6 +7,7 @@ import { getMdxSource, readMdxFile } from "./mdx";
 import { getRandomDefaultImage } from "./image";
 import { formatDate } from "@helpers/formatDate";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { IGetCSSReturn } from "plaiceholder/dist/css";
 
 export interface PostMetaData {
   slug: string;
@@ -14,7 +15,7 @@ export interface PostMetaData {
   date: string;
   description: string;
   coverImg: string;
-  blurCss?: any;
+  blurCss?: IGetCSSReturn;
   tags?: string[];
 }
 

@@ -1,7 +1,7 @@
 "use client";
 
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import { AiOutlineMenu } from "@react-icons/all-files/ai/AiOutlineMenu";
+import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
 import { useState } from "react";
 import NavigationButtonList from "../NavigationButtonList";
 
@@ -15,7 +15,7 @@ const Menu = () => {
   return (
     <div className="block sm:hidden">
       <button onClick={onClick} aria-label="Show Menu">
-        <MenuIcon fontSize="large" />
+        <AiOutlineMenu fontSize="large" />
       </button>
       <div
         className={`${
@@ -25,7 +25,7 @@ const Menu = () => {
         <button
           className="absolute right-4 h-14 text-white"
           aria-label="Close Menu">
-          <CloseIcon fontSize="large" />
+          <AiOutlineClose fontSize="large" />
         </button>
         <div className="w-full h-full flex flex-col justify-center items-center">
           <NavigationButtonList

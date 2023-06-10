@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 type Props = PostMetaData;
 
 const PostCard: FC<Props> = ({
-  id,
+  slug,
   title,
   date,
   coverImg,
@@ -20,7 +20,7 @@ const PostCard: FC<Props> = ({
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`/posts/${id}`);
+    router.push(`/posts/${slug}`);
   };
 
   return (

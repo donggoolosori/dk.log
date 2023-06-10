@@ -8,12 +8,12 @@ import {
   instagramUserName,
   location,
   name,
-} from '@constants/profile';
+} from "@constants/profile";
 // icons
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub";
+import { GrLocation } from "@react-icons/all-files/gr/GrLocation";
+import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
 
 const ProfileInfo = () => {
   return (
@@ -24,19 +24,19 @@ const ProfileInfo = () => {
       </section>
 
       <a href={`mailto:${email}`} className="flex items-center text-md gap-3">
-        <MailOutlineIcon className="text-2xl" />
+        <AiOutlineMail className="text-2xl" />
         <p>{email}</p>
       </a>
       <a href={githubURL} className="flex items-center text-md gap-3">
-        <GitHubIcon className="text-2xl" />
+        <AiFillGithub className="text-2xl" />
         <p>{githubUserName}</p>
       </a>
       <a href={instagramURL} className="flex items-center text-md gap-3">
-        <InstagramIcon className="text-2xl" />
+        <AiOutlineInstagram className="text-2xl" />
         <p>{instagramUserName}</p>
       </a>
       <div className="flex items-center text-md gap-3">
-        <LocationOnIcon className="text-2xl" />
+        <GrLocation className="text-2xl" />
         <p>{location}</p>
       </div>
     </div>

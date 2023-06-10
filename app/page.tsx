@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteURL),
   title: siteTitle,
   description: siteDescription,
   openGraph: {
