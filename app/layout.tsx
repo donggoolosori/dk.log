@@ -1,11 +1,14 @@
 import Header from "@components/Header";
 import { astronautImage } from "@constants/profile";
+import { siteURL } from "@constants/siteMetaData";
 import { ThemeProvider } from "@contexts/themeContext";
 import { Metadata } from "next";
 import "./styles/code.css";
 import "./styles/globals.css";
 
-export const metadata: Metadata = {};
+export const metadata: Metadata = {
+  metadataBase: new URL(siteURL),
+};
 
 export default function RootLayout({
   children,
