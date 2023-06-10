@@ -1,15 +1,15 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-const dir = path.join(process.cwd(), 'public/images/default');
+const dir = path.join(process.cwd(), "public/images/default");
 
 export function getRandomDefaultImage(id: string) {
   const fileNames = fs.readdirSync(dir);
   const length = fileNames.length;
 
-  const index = getHash(id) % length;
+  const randomIndex = getHash(id) % length;
 
-  return '/images/default/' + fileNames[index];
+  return "/images/default/" + fileNames[randomIndex];
 }
 
 function getHash(str: string) {
