@@ -10,7 +10,7 @@ const BlurImage: FC<Props> = ({ blurCss }) => {
         filter: "blur(40px)",
         ...blurCss,
       }}
-      className="w-full h-full"
+      className="scale-105 w-full h-full"
     />
   );
 };
