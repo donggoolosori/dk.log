@@ -1,6 +1,8 @@
-import { PostMetaData } from '@lib/posts';
-import { useRouter } from 'next/router';
-import { ChangeEvent, useEffect, useState, useTransition } from 'react';
+"use client";
+
+import { PostMetaData } from "@lib/posts";
+import { useRouter } from "next/router";
+import { ChangeEvent, useEffect, useState, useTransition } from "react";
 
 const usePostSearch = (posts: PostMetaData[]) => {
   const [filteredPosts, setFilteredPosts] = useState<PostMetaData[]>([]);

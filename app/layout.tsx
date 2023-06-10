@@ -1,10 +1,18 @@
+import Header from "@components/Header";
 import { astronautImage } from "@constants/profile";
-import { Html, Head, Main, NextScript } from "next/document";
+import { ThemeProvider } from "@contexts/themeContext";
+import { Metadata } from "next";
 
-export default function Document() {
+export const metadata: Metadata = {};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <Html lang="ko">
-      <Head>
+    <html lang="en">
+      <head>
         <link
           rel="stylesheet"
           as="style"
@@ -12,15 +20,13 @@ export default function Document() {
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css"
         />
         <link rel="icon" type="image/gif" href={astronautImage} />
-        <meta
-          name="google-site-verification"
-          content="bXuH9MEJiR1rFsSNrNbO0XjIdEfHwhyCM5QEHZBazBM"
-        />
-      </Head>
+      </head>
       <body className="p-4 max-w-3xl mx-auto font-pretendard transition-all">
-        <Main />
-        <NextScript />
+        <ThemeProvider>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
-    </Html>
+    </html>
   );
 }

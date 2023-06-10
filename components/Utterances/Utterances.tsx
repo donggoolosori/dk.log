@@ -1,3 +1,5 @@
+"use client";
+
 import { label, repo } from "@constants/utterances";
 import { useEffect, useRef } from "react";
 

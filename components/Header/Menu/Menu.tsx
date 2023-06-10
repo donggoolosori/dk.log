@@ -1,7 +1,9 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
-import NavigationButtonList from '../NavigationButtonList';
+"use client";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import { useState } from "react";
+import NavigationButtonList from "../NavigationButtonList";
 
 const Menu = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -17,7 +19,7 @@ const Menu = () => {
       </button>
       <div
         className={`${
-          isOpened ? 'absolute' : 'hidden'
+          isOpened ? "absolute" : "hidden"
         } top-0 left-0 w-screen h-screen bg-black opacity-90`}
         onClick={onClick}>
         <button

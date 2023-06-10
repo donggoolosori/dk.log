@@ -1,8 +1,10 @@
-import { PostMetaData } from "@lib/posts";
+"use client";
+
+import type { PostMetaData } from "@lib/posts";
 import PostImage from "@components/PostImage";
 import Tags from "@components/Tags";
 import { FC } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 type Props = PostMetaData;
 

@@ -1,10 +1,12 @@
-import AllTags from '@components/AllTags';
-import PostCardList from '@components/PostCardList';
-import SearchBar from '@components/SearchBar';
-import { PostMetaData } from '@lib/posts';
-import { Tags } from '@lib/tag';
-import { FC } from 'react';
-import usePostSearch from './usePostSearch.hook';
+"use client";
+
+import AllTags from "@components/AllTags";
+import PostCardList from "@components/PostCardList";
+import SearchBar from "@components/SearchBar";
+import { PostMetaData } from "@lib/posts";
+import { Tags } from "@lib/tag";
+import { FC } from "react";
+import usePostSearch from "./usePostSearch.hook";
 
 interface Props {
   allPostsMetaData: PostMetaData[];
