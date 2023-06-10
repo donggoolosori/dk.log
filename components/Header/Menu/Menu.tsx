@@ -2,8 +2,8 @@
 
 import { AiOutlineMenu } from "@react-icons/all-files/ai/AiOutlineMenu";
 import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
-import { useState } from "react";
 import NavigationButtonList from "../NavigationButtonList";
+import { useState } from "react";
 
 const Menu = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);

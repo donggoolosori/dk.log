@@ -1,7 +1,8 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from "tailwindcss/defaultTheme";
 
-module.exports = {
+const tailwindConfig = {
   content: [
+    "./app/**/*.{js,jsx,ts,tsx}",
     "./pages/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
@@ -15,7 +16,6 @@ module.exports = {
           css: {
             code: {
               backgroundColor: theme("colors.gray.200"),
-              borderRadius: theme("borderRadius.sm"),
               color: theme("colors.red.500"),
               paddingTop: theme("padding[1]"),
               paddingRight: theme("padding[1.5]"),
@@ -45,9 +45,10 @@ module.exports = {
   },
   darkMode: "class",
   plugins: [
-    require("@tailwindcss/line-clamp"),
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar-hide"),
     require("daisyui"),
   ],
 };
+
+export default tailwindConfig;

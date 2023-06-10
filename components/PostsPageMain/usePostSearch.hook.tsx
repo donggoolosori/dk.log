@@ -1,13 +1,13 @@
 "use client";
 
 import { PostMetaData } from "@lib/posts";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState, useTransition } from "react";
 
 const usePostSearch = (posts: PostMetaData[]) => {
   const [filteredPosts, setFilteredPosts] = useState<PostMetaData[]>([]);
 
-  const route = useRouter().asPath;
+  const route = useRouter();
 
   const [isLoading, startTransition] = useTransition();
 

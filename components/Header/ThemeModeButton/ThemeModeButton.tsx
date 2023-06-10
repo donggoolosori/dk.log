@@ -1,8 +1,8 @@
 "use client";
 
-import useDarkMode from "hooks/useDarkMode.hook";
 import { HiSun } from "@react-icons/all-files/hi/HiSun";
 import { HiMoon } from "@react-icons/all-files/hi/HiMoon";
+import useDarkMode from "@hooks/useDarkMode.hook";
 
 const ThemeModeButton = () => {
   const { theme, toggleTheme } = useDarkMode();

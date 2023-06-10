@@ -3,20 +3,15 @@ import Mdx from "@components/Mdx";
 import PostImage from "@components/PostImage";
 import Utterances from "@components/Utterances";
 import { siteURL } from "@constants/siteMetaData";
-import { getAllPosts, PostData } from "@lib/posts";
+import { getPostData } from "@lib/posts";
 
 interface Props {
-  params: PostData;
-}
-
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
-
-  return posts;
+  params: { slug: string };
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { title, description, coverImg, slug } = params;
+  const post = await getPostData(params.slug);
+  const { title, description, coverImg, slug } = post;
 
   return {
     title,
@@ -36,7 +31,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function PostPage({ params }: Props) {
-  const { title, coverImg, mdxSource, date, blurCss, adjacentPosts } = params;
+  const post = await getPostData(params.slug);
+  const { title, coverImg, mdxSource, date, blurCss, adjacentPosts } = post;
 
   return (
     <article className="prose prose-a:no-underline dark:prose-invert max-w-none mx-auto prose-h1:mt-20 prose-headings:before:text-blue-400 prose-h1:before:content-['#\00a0'] prose-img:rounded-2xl prose-code:before:content-none prose-code:after:content-none">
