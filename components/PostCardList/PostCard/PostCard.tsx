@@ -1,13 +1,15 @@
-import { PostMetaData } from "@lib/posts";
+"use client";
+
+import type { PostMetaData } from "@lib/posts";
 import PostImage from "@components/PostImage";
 import Tags from "@components/Tags";
 import { FC } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 type Props = PostMetaData;
 
 const PostCard: FC<Props> = ({
-  id,
+  slug,
   title,
   date,
   coverImg,
@@ -18,7 +20,7 @@ const PostCard: FC<Props> = ({
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`/posts/${id}`);
+    router.push(`/posts/${slug}`);
   };
 
   return (

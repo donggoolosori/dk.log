@@ -1,3 +1,5 @@
+"use client";
+
 import { astronautImage } from "@constants/profile";
 import Image from "next/image";
 import ProfileImage from "./ProfileImage";

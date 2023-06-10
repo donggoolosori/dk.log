@@ -36,9 +36,9 @@ export const getMdxSource = async (source: string) => {
   return mdxSource;
 };
 
-export const readMdxFile = (id: string) => {
-  const mdPath = path.join(postsDir, `${id}.md`);
-  const mdxPath = path.join(postsDir, `${id}.mdx`);
+export const readMdxFile = (slug: string) => {
+  const mdPath = path.join(postsDir, `${slug}.md`);
+  const mdxPath = path.join(postsDir, `${slug}.mdx`);
 
   const source = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, "utf-8")

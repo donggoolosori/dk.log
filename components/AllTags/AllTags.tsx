@@ -1,6 +1,6 @@
-import Tag from '@components/Tag';
-import { Tags } from '@lib/tag';
-import { FC } from 'react';
+import Tag from "@components/Tag";
+import type { Tags } from "@lib/tag";
+import { FC } from "react";
 
 interface Props {
   allTags: Tags;

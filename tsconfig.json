@@ -16,13 +16,21 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*":["components/*"],
-      "@lib/*":["lib/*"],
-      "@posts/*":["posts/*"],      
-      "@helpers/*":["helpers/*"],
-      "@constants/*":["constants/*"]
-    }
+      "@components/*": ["components/*"],
+      "@lib/*": ["lib/*"],
+      "@posts/*": ["posts/*"],
+      "@helpers/*": ["helpers/*"],
+      "@constants/*": ["constants/*"],
+      "@contexts/*": ["contexts/*"],
+      "@hooks/*": ["hooks/*"],
+      "@styles/*": ["styles/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

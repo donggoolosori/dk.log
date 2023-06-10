@@ -1,15 +1,13 @@
 import { AdjacentPosts } from "@lib/posts";
 import Link from "next/link";
-
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { FC } from "react";
+import { AiOutlineArrowRight } from "@react-icons/all-files/ai/AiOutlineArrowRight";
+import { AiOutlineArrowLeft } from "@react-icons/all-files/ai/AiOutlineArrowLeft";
 
 interface Props {
   adjacentPosts: AdjacentPosts;
 }
 
-const AdjacentPosts: FC<Props> = ({ adjacentPosts }) => {
+const AdjacentPosts = ({ adjacentPosts }: Props) => {
   const { prevPost, nextPost } = adjacentPosts;
 
   return (
@@ -18,10 +16,10 @@ const AdjacentPosts: FC<Props> = ({ adjacentPosts }) => {
         {!prevPost ? (
           ""
         ) : (
-          <Link href={`/posts/${prevPost.id}`}>
+          <Link href={`/posts/${prevPost.slug}`}>
             <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5  rounded-2xl shadow-slate-500 dark:shadow-black shadow-lg">
               <div className="flex justify-center items-center">
-                <ArrowBackIcon className="text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500" />
+                <AiOutlineArrowLeft className="text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500" />
                 <span className="text-xs text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500">
                   PREVIOUS
                 </span>
@@ -37,13 +35,13 @@ const AdjacentPosts: FC<Props> = ({ adjacentPosts }) => {
         {!nextPost ? (
           ""
         ) : (
-          <Link href={`/posts/${nextPost.id}`}>
+          <Link href={`/posts/${nextPost.slug}`}>
             <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5  rounded-2xl shadow-slate-500 dark:shadow-black shadow-lg">
               <div className="flex justify-center items-center">
                 <span className="text-xs text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500">
                   NEXT
                 </span>
-                <ArrowForwardIcon className="text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500" />
+                <AiOutlineArrowRight className="text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500" />
               </div>
               <span className="line-clamp-2 sm:line-clamp-1 text-md">
                 {nextPost.title}

@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { IGetCSSReturn } from "plaiceholder/dist/css";
 import { FC } from "react";
 import BlurImage from "./BlurImage";
 
 interface Props {
   coverImg: string;
-  blurCss?: any;
+  blurCss?: IGetCSSReturn;
   priority?: boolean;
   hoverScaleUp?: boolean;
 }
@@ -25,7 +26,6 @@ const PostImage: FC<Props> = ({
         src={coverImg}
         alt="cover-image"
         fill
-        sizes="100vw"
         priority={priority}
         className="object-cover m-0"
       />

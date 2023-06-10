@@ -1,4 +1,6 @@
-import { MouseEvent, TouchEvent, useCallback, useRef } from 'react';
+"use client";
+
+import { MouseEvent, TouchEvent, useCallback, useRef } from "react";
 
 const use3dCard = () => {
   const cardWrapper = useRef<HTMLDivElement>(null);
@@ -14,10 +16,10 @@ const use3dCard = () => {
 
     let rotateY, rotateX;
 
-    if (e.type === 'mousemove') {
+    if (e.type === "mousemove") {
       rotateY = ((e as MouseEvent).clientX - xAxis) / 20;
       rotateX = (yAxis - (e as MouseEvent).clientY) / 20;
-    } else if (e.type === 'touchmove') {
+    } else if (e.type === "touchmove") {
       rotateY = ((e as TouchEvent).touches[0].clientX - xAxis) / 20;
       rotateX = (yAxis - (e as TouchEvent).touches[0].clientY) / 20;
     }
@@ -30,13 +32,13 @@ const use3dCard = () => {
   const onLeave = useCallback(() => {
     if (card.current) {
       card.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
-      card.current.style.transition = 'transform 1s ease';
+      card.current.style.transition = "transform 1s ease";
     }
   }, []);
 
   const onEnter = useCallback(() => {
     if (card.current) {
-      card.current.style.transition = 'transform 0.1s ease';
+      card.current.style.transition = "transform 0.1s ease";
     }
   }, []);
 

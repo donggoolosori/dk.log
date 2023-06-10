@@ -7,19 +7,20 @@ import { getMdxSource, readMdxFile } from "./mdx";
 import { getRandomDefaultImage } from "./image";
 import { formatDate } from "@helpers/formatDate";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { IGetCSSReturn } from "plaiceholder/dist/css";
 
 export interface PostMetaData {
-  id: string;
+  slug: string;
   title: string;
   date: string;
   description: string;
   coverImg: string;
-  blurCss?: any;
+  blurCss?: IGetCSSReturn;
   tags?: string[];
 }
 
 interface AdjacentPost {
-  id: string;
+  slug: string;
   title: string;
   date: string;
 }
@@ -42,12 +43,26 @@ interface PostDataOption {
   recent: boolean;
 }
 
+export async function getAllPosts() {
+  const fileNames = fs.readdirSync(postsDir);
+
+  const promises: Promise<PostData>[] = fileNames.map(async (fileName) => {
+    const slug = fileName.replace(fileExtensionRegex, "");
+    const postData = await getPostData(slug);
+    return postData;
+  });
+
+  const allPosts = await Promise.all(promises);
+
+  return allPosts;
+}
+
 export async function getSortedPostsMetaData(options?: PostDataOption) {
-  let fileNames = fs.readdirSync(postsDir);
+  const fileNames = fs.readdirSync(postsDir);
 
   const promises: Promise<PostMetaData>[] = fileNames.map(async (fileName) => {
-    const id = fileName.replace(fileExtensionRegex, "");
-    const frontmatter = await getFrontMatter(id);
+    const slug = fileName.replace(fileExtensionRegex, "");
+    const frontmatter = await getFrontMatter(slug);
     return frontmatter;
   });
 
@@ -70,13 +85,13 @@ export function getAllPostIds() {
   return fileNames.map((fileName) => {
     return {
       params: {
-        id: fileName.replace(fileExtensionRegex, ""),
+        slug: fileName.replace(fileExtensionRegex, ""),
       },
     };
   });
 }
 
-const getAdjacentPosts = (id: string): AdjacentPosts => {
+const getAdjacentPosts = (slug: string): AdjacentPosts => {
   const posts = fs
     .readdirSync(postsDir)
     .map((fileName) => {
@@ -85,14 +100,14 @@ const getAdjacentPosts = (id: string): AdjacentPosts => {
       const { title, date } = matter(source).data;
 
       return {
-        id: fileName.replace(fileExtensionRegex, ""),
+        slug: fileName.replace(fileExtensionRegex, ""),
         title,
         date,
       };
     })
     .sort(({ date: a }, { date: b }) => +new Date(a) - +new Date(b));
 
-  const currPostIndex = posts.findIndex((metaData) => metaData.id === id);
+  const currPostIndex = posts.findIndex((metaData) => metaData.slug === slug);
 
   const prevPost = currPostIndex === 0 ? null : posts[currPostIndex - 1];
   const nextPost =
@@ -104,14 +119,14 @@ const getAdjacentPosts = (id: string): AdjacentPosts => {
   };
 };
 
-export async function getPostData(id: string): Promise<PostData> {
-  const source = readMdxFile(id);
+export async function getPostData(slug: string): Promise<PostData> {
+  const source = readMdxFile(slug);
 
   const mdxSource = await getMdxSource(source);
 
-  const frontmatter = await getFrontMatter(id, source);
+  const frontmatter = await getFrontMatter(slug, source);
 
-  const adjacentPosts = getAdjacentPosts(id);
+  const adjacentPosts = getAdjacentPosts(slug);
 
   return {
     ...frontmatter,
@@ -120,9 +135,9 @@ export async function getPostData(id: string): Promise<PostData> {
   } as PostData;
 }
 
-export async function getFrontMatter(id: string, source?: string) {
+export async function getFrontMatter(slug: string, source?: string) {
   if (!source) {
-    source = readMdxFile(id);
+    source = readMdxFile(slug);
   }
 
   const { data } = matter(source);
@@ -130,13 +145,13 @@ export async function getFrontMatter(id: string, source?: string) {
   let { date, coverImg, description } = data;
   date = formatDate(date);
   description = description || "";
-  coverImg = coverImg || getRandomDefaultImage(id);
+  coverImg = coverImg || getRandomDefaultImage(slug);
 
   const { css } = await getPlaiceholder(coverImg);
 
   return {
     ...data,
-    id,
+    slug,
     date,
     coverImg,
     description,
