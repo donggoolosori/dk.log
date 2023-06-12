@@ -3,10 +3,18 @@ import Mdx from "@components/Mdx";
 import PostImage from "@components/PostImage";
 import Utterances from "@components/Utterances";
 import { siteURL } from "@constants/siteMetaData";
-import { getPostData } from "@lib/posts";
+import { getAllSlugs, getPostData } from "@lib/posts";
 
 interface Props {
   params: { slug: string };
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props) {
