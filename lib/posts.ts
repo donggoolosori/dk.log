@@ -40,7 +40,7 @@ export const postsDir = path.join(process.cwd(), "posts");
 export const fileExtensionRegex = /\.mdx?$/;
 
 interface PostDataOption {
-  recent: boolean;
+  recent: number;
 }
 
 export async function getAllSlugs() {
@@ -69,7 +69,7 @@ export async function getSortedPostsMetaData(options?: PostDataOption) {
   });
 
   if (options?.recent) {
-    return allPostsMetaData.slice(0, 6);
+    return allPostsMetaData.slice(0, options.recent);
   }
 
   return allPostsMetaData;

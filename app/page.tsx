@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const allPostsMetaData = await getSortedPostsMetaData({ recent: true });
+  const allPostsMetaData = await getSortedPostsMetaData({ recent: 8 });
 
   return (
     <div>
