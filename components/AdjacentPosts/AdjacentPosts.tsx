@@ -17,7 +17,7 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
           ""
         ) : (
           <Link href={`/posts/${prevPost.slug}`}>
-            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5 rounded-2xl shadow-lg">
+            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5 rounded-2xl shadow-lg border border-primary">
               <div className="flex justify-center items-center">
                 <AiOutlineArrowLeft className="group-hover:text-primary" />
                 <span className="text-xs group-hover:text-primary">
@@ -36,7 +36,7 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
           ""
         ) : (
           <Link href={`/posts/${nextPost.slug}`}>
-            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5 rounded-2xl shadow-lg">
+            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5 rounded-2xl shadow-lg border border-primary">
               <div className="flex justify-center items-center">
                 <span className="text-xs text-slate-400  group-hover:text-primary">
                   NEXT
