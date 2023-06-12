@@ -8,9 +8,13 @@ interface Props {
 
 const PostCardList: FC<Props> = ({ allPostsMetaData }) => {
   return (
-    <div className="flex justify-center flex-wrap gap-8">
-      {allPostsMetaData?.map((props) => (
-        <PostCard key={props.slug} {...props} />
+    <div className="grid grid-col-3 lg:grid-cols-6 gap-8 mx-auto px-16">
+      {allPostsMetaData?.map((postMetaData, idx) => (
+        <PostCard
+          key={postMetaData.slug}
+          postMetaData={postMetaData}
+          className={idx < 2 ? "col-span-3" : "col-span-3 xl:col-span-2"}
+        />
       ))}
     </div>
   );

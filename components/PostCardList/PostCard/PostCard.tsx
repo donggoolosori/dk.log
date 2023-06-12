@@ -3,20 +3,18 @@
 import type { PostMetaData } from "@lib/posts";
 import PostImage from "@components/PostImage";
 import Tags from "@components/Tags";
-import { FC } from "react";
 import { useRouter } from "next/navigation";
 
-type Props = PostMetaData;
+// type Props = PostMetaData;
+interface Props {
+  postMetaData: PostMetaData;
+  className?: string;
+}
 
-const PostCard: FC<Props> = ({
-  slug,
-  title,
-  date,
-  coverImg,
-  description,
-  blurCss,
-  tags,
-}) => {
+export default function PostCard({ postMetaData, className = "" }: Props) {
+  const { slug, title, date, coverImg, description, blurCss, tags } =
+    postMetaData;
+
   const router = useRouter();
 
   const onClick = () => {
@@ -26,7 +24,7 @@ const PostCard: FC<Props> = ({
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer group max-w-[400px] min-w-[300px] h-96 rounded-3xl flex flex-col flex-1 gap-2 relative shadow-xl dark:shadow-lg shadow-slate-500 dark:shadow-black">
+      className={`cursor-pointer group h-96 rounded-3xl flex flex-col flex-1 gap-2 relative shadow-xl dark:shadow-lg shadow-slate-500 dark:shadow-black ${className}`}>
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-3xl brightness-75 dark:brightness-50">
         <PostImage blurCss={blurCss} coverImg={coverImg} hoverScaleUp />
       </div>
@@ -42,6 +40,4 @@ const PostCard: FC<Props> = ({
       </section>
     </div>
   );
-};
-
-export default PostCard;
+}
