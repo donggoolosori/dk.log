@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { IGetCSSReturn } from "plaiceholder/dist/css";
-import { FC } from "react";
 import BlurImage from "./BlurImage";
 
 interface Props {
@@ -10,15 +9,15 @@ interface Props {
   hoverScaleUp?: boolean;
 }
 
-const PostImage: FC<Props> = ({
+export default function PostImage({
   blurCss,
   coverImg,
   priority,
   hoverScaleUp,
-}) => {
+}: Props) {
   return (
     <div
-      className={`relative w-full h-full transition-transform duration-300 ${
+      className={`relative w-full h-full transition-transform duration-200 overflow-hidden ${
         hoverScaleUp ? "group-hover:scale-110" : ""
       }`}>
       {blurCss && <BlurImage blurCss={blurCss} />}
@@ -31,6 +30,4 @@ const PostImage: FC<Props> = ({
       />
     </div>
   );
-};
-
-export default PostImage;
+}

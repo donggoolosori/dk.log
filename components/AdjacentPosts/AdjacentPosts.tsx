@@ -12,15 +12,15 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
 
   return (
     <div className={`flex justify-between w-full mt-20 mb-10`}>
-      <div className="w-1/2 flex justify-start">
+      <div className="flex flex-1 justify-start">
         {!prevPost ? (
           ""
         ) : (
           <Link href={`/posts/${prevPost.slug}`}>
-            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5  rounded-2xl shadow-slate-500 dark:shadow-black shadow-lg">
+            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5 rounded-2xl shadow-lg border border-primary">
               <div className="flex justify-center items-center">
-                <AiOutlineArrowLeft className="text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500" />
-                <span className="text-xs text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500">
+                <AiOutlineArrowLeft className="group-hover:text-primary" />
+                <span className="text-xs group-hover:text-primary">
                   PREVIOUS
                 </span>
               </div>
@@ -31,17 +31,17 @@ const AdjacentPosts = ({ adjacentPosts }: Props) => {
           </Link>
         )}
       </div>
-      <div className="w-1/2 flex justify-end">
+      <div className="flex flex-1 justify-end">
         {!nextPost ? (
           ""
         ) : (
           <Link href={`/posts/${nextPost.slug}`}>
-            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5  rounded-2xl shadow-slate-500 dark:shadow-black shadow-lg">
+            <div className="group flex flex-col items-center justify-between no-underline h-32 sm:h-24 w-4/5 p-5 rounded-2xl shadow-lg border border-primary">
               <div className="flex justify-center items-center">
-                <span className="text-xs text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500">
+                <span className="text-xs text-slate-400  group-hover:text-primary">
                   NEXT
                 </span>
-                <AiOutlineArrowRight className="text-slate-400 group-hover:text-sky-400 dark:group-hover:text-indigo-500" />
+                <AiOutlineArrowRight className="text-slate-400  group-hover:text-primary" />
               </div>
               <span className="line-clamp-2 sm:line-clamp-1 text-md">
                 {nextPost.title}

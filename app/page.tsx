@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const allPostsMetaData = await getSortedPostsMetaData({ recent: true });
+  const allPostsMetaData = await getSortedPostsMetaData({ recent: 8 });
 
   return (
     <div>
@@ -32,7 +32,7 @@ export default async function Home() {
       <div className="w-full flex justify-center">
         <Link
           href={"/posts"}
-          className="shadow-slate-400 dark:shadow-black shadow-lg text-md mt-20 rounded-2xl p-4 hover:-translate-y-2 transition-transform duration-300">
+          className="btn btn-outline btn-primary shadow-md text-md mt-20 rounded-2xl p-4 hover:-translate-y-1 transition-transform duration-300">
           ✍️ MORE POSTS
         </Link>
       </div>

@@ -25,7 +25,7 @@ const ProfileCard = () => {
       </div>
       <section
         ref={card}
-        className="w-100 h-[580px] rounded-2xl shadow-lg shadow-sky-300 dark:shadow-indigo-600 overflow-hidden flex flex-col justify-between">
+        className="w-100 h-[580px] rounded-2xl shadow-md shadow-primary overflow-hidden flex flex-col justify-between">
         <ProfileImage />
         <ProfileInfo />
         <div className="bg-gradient-to-r from-sky-300 via-purple-500 to-indigo-500 w-full h-[6px]" />

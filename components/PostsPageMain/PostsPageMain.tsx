@@ -17,11 +17,14 @@ const PostsPageMain: FC<Props> = ({ allPostsMetaData, allTags }) => {
   const { filteredPosts, searchHandler } = usePostSearch(allPostsMetaData);
 
   return (
-    <div className="flex flex-col items-center gap-16">
-      <SearchBar onChange={searchHandler} />
-      <AllTags allTags={allTags} />
+    <>
+      <div className="flex flex-col items-center gap-16">
+        <SearchBar onChange={searchHandler} />
+        <AllTags allTags={allTags} />
+      </div>
+      <div className="h-16" />
       <PostCardList allPostsMetaData={filteredPosts} />
-    </div>
+    </>
   );
 };
 

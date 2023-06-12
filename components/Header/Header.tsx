@@ -9,7 +9,7 @@ import ThemeModeButton from "./ThemeModeButton";
 const Header = () => {
   return (
     <nav className="fixed top-0 left-0 backdrop-blur-sm bg-base-100/40 z-50 w-full h-14 flex justify-center items-center">
-      <div className="flex flex-row justify-between items-center w-full h-full max-w-3xl px-4">
+      <div className="flex flex-row justify-between items-center w-full h-full px-4 md:px-28 lg:px-40">
         <div className="flex items-center gap-2">
           <NavigationButton
             href="/"

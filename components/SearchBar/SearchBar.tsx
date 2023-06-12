@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "@react-icons/all-files/ai/AiOutlineSearch";
 import { ChangeEvent, FC, useState } from "react";
 
 interface Props {
-  onChange?: any;
+  onChange?: (e: ChangeEvent) => void;
 }
 
 const SearchBar: FC<Props> = ({ onChange }) => {
@@ -22,7 +22,7 @@ const SearchBar: FC<Props> = ({ onChange }) => {
       <input
         value={inputValue}
         onChange={onChangeHandler}
-        className="border-4 border-indigo-300 focus:border-indigo-600 rounded-2xl w-full px-6 py-3 text-xl outline-none dark:bg-slate-500 dark:placeholder:text-slate-800"
+        className="input input-bordered input-primary input-lg border-4 rounded-2xl w-full px-6 py-3"
         placeholder="Search Posts"
       />
     </div>
