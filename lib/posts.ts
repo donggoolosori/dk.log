@@ -43,18 +43,14 @@ interface PostDataOption {
   recent: boolean;
 }
 
-export async function getAllPosts() {
+export async function getAllSlugs() {
   const fileNames = fs.readdirSync(postsDir);
 
-  const promises: Promise<PostData>[] = fileNames.map(async (fileName) => {
-    const slug = fileName.replace(fileExtensionRegex, "");
-    const postData = await getPostData(slug);
-    return postData;
+  const slugs = fileNames.map((fileName) => {
+    return fileName.replace(fileExtensionRegex, "");
   });
 
-  const allPosts = await Promise.all(promises);
-
-  return allPosts;
+  return slugs;
 }
 
 export async function getSortedPostsMetaData(options?: PostDataOption) {
