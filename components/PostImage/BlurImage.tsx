@@ -1,18 +1,17 @@
-import { FC } from "react";
+import { IGetCSSReturn } from "plaiceholder/dist/css";
 
 interface Props {
-  blurCss: any;
+  blurCss: IGetCSSReturn;
 }
-const BlurImage: FC<Props> = ({ blurCss }) => {
+
+export default function BlurImage({ blurCss }: Props) {
   return (
     <div
       style={{
         filter: "blur(40px)",
         ...blurCss,
       }}
-      className="scale-105 w-full h-full"
+      className="w-full h-full"
     />
   );
-};
-
-export default BlurImage;
+}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { FC } from "react";
 
 interface Props {
   tag: string;
@@ -7,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-const Tag: FC<Props> = ({ tag, count, className }) => {
+export default function Tag({ tag, count, className }: Props) {
   return (
     <Link
       href={tag === "All" ? "/posts" : `/posts/tag/${tag}`}
@@ -16,6 +15,4 @@ const Tag: FC<Props> = ({ tag, count, className }) => {
       {count && <span className="text-xs">{count}</span>}
     </Link>
   );
-};
-
-export default Tag;
+}
