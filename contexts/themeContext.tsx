@@ -2,7 +2,9 @@
 
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-type Theme = "dark" | "light";
+type Theme = "dark" | "light" | "dracula";
+
+const darkTheme: "dark" | "dracula" = "dracula";
 
 interface Context {
   theme: Theme;
@@ -20,18 +22,18 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     setTheme(
       window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
+        ? darkTheme
         : "light"
     );
   }, []);
 
   const toggleTheme = () => {
     if (theme === "light") {
-      setTheme("dark");
-      document.querySelector("html")?.setAttribute("data-theme", "dark");
+      setTheme(darkTheme);
+      document.querySelector("html")?.setAttribute("data-theme", darkTheme);
     } else {
       setTheme("light");
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove(darkTheme);
       document.querySelector("html")?.setAttribute("data-theme", "light");
     }
   };

@@ -7,7 +7,7 @@ const tailwindConfig = {
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
   daisyui: {
-    themes: ["light", "dark"],
+    themes: ["light", "dark", "dracula"],
   },
   theme: {
     extend: {

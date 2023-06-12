@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ProfileImage = () => {
   return (
-    <div className="relative w-full h-1/2 shadow-md shadow-sky-200 dark:shadow-indigo-500">
+    <div className="relative w-full h-1/2 shadow-md shadow-primary">
       <Image
         src={profileImage}
         alt="profile-image"

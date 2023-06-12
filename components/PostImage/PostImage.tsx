@@ -18,7 +18,7 @@ export default function PostImage({
   return (
     <div
       className={`relative w-full h-full transition-transform duration-200 overflow-hidden ${
-        hoverScaleUp ? "group-hover:scale-105" : ""
+        hoverScaleUp ? "group-hover:scale-110" : ""
       }`}>
       {blurCss && <BlurImage blurCss={blurCss} />}
       <Image

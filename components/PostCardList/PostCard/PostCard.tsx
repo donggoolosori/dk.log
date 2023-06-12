@@ -14,21 +14,25 @@ export default function PostCard({ postMetaData, className = "" }: Props) {
 
   return (
     <>
-      <Link
-        href={`/posts/${slug}`}
-        className={`group flex flex-col gap-4 ${className}`}>
-        <div className="relative w-full h-80 rounded-xl overflow-hidden">
+      <div className={`flex flex-col gap-4 ${className}`}>
+        <Link
+          href={`/posts/${slug}`}
+          className="group relative w-full h-80 rounded-xl overflow-hidden shadow-md">
           <PostImage blurCss={blurCss} coverImg={coverImg} hoverScaleUp />
-        </div>
+        </Link>
         <section className="w-full flex flex-col gap-2">
           <Tags tags={tags} />
-          <div className="font-semibold text-2xl w-full line-clamp-2 sm:line-clamp-1 md:line-clamp-2">
-            {title}
-          </div>
-          <div className="text-md w-full line-clamp-2">{description}</div>
-          <div className="text-md text-gray-400">{date}</div>
+          <Link
+            href={`/posts/${slug}`}
+            className="group flex flex-col gap-2 w-full">
+            <div className="font-semibold text-2xl w-full line-clamp-2 sm:line-clamp-1 md:line-clamp-2">
+              {title}
+            </div>
+            <div className="text-md w-full line-clamp-2">{description}</div>
+            <div className="text-md text-gray-400">{date}</div>
+          </Link>
         </section>
-      </Link>
+      </div>
       {/* <div
         onClick={onClick}
         className={`cursor-pointer group h-96 rounded-3xl flex flex-col flex-1 gap-2 relative shadow-xl dark:shadow-lg shadow-slate-500 dark:shadow-black ${className}`}>

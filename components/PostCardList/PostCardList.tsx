@@ -8,7 +8,7 @@ interface Props {
 
 const PostCardList: FC<Props> = ({ allPostsMetaData }) => {
   return (
-    <div className="grid grid-col-3 lg:grid-cols-6 gap-8 mx-auto px-16">
+    <div className="grid grid-col-3 lg:grid-cols-6 gap-8 mx-auto">
       {allPostsMetaData?.map((postMetaData, idx) => (
         <PostCard
           key={postMetaData.slug}
