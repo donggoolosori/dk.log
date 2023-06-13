@@ -13,6 +13,7 @@ const PostCardList: FC<Props> = ({ allPostsMetaData }) => {
         <PostCard
           key={postMetaData.slug}
           postMetaData={postMetaData}
+          priority={idx < 2}
           className={idx < 2 ? "col-span-3" : "col-span-3 xl:col-span-2"}
         />
       ))}
