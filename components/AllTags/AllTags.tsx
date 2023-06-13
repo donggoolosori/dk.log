@@ -1,12 +1,11 @@
 import type { Tags } from "@lib/tag";
 import Link from "next/link";
-import { FC } from "react";
 
 interface Props {
   allTags: Tags;
 }
 
-const AllTags: FC<Props> = ({ allTags }) => {
+export default function AllTags({ allTags }: Props) {
   return (
     <div className="flex flex-wrap gap-3 max-w-3xl">
       {allTags.map((tag, idx) => (
@@ -20,6 +19,4 @@ const AllTags: FC<Props> = ({ allTags }) => {
       ))}
     </div>
   );
-};
-
-export default AllTags;
+}

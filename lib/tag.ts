@@ -1,7 +1,7 @@
-import { getSortedPostsMetaData, PostMetaData, postsDir } from './posts';
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
+import { getSortedPostsMetaData, PostMetaData, postsDir } from "./posts";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 type TagCounter = Record<string, number>;
 type Tag = [string, number];
@@ -13,7 +13,7 @@ export const getAllTags = (): Tags => {
   const allTags: TagCounter = { All: fileNames.length };
 
   fileNames.forEach((fileName) => {
-    const source = fs.readFileSync(path.join(postsDir, fileName), 'utf-8');
+    const source = fs.readFileSync(path.join(postsDir, fileName), "utf-8");
 
     const { data } = matter(source);
 
@@ -36,6 +36,8 @@ export const getTagFilteredPosts = async (
   tag: string
 ): Promise<PostMetaData[]> => {
   const posts = await getSortedPostsMetaData();
+
+  if (["all", "All"].includes(tag)) return posts;
 
   const filteredPosts = posts.filter((frontmatter) =>
     frontmatter.tags?.includes(tag)

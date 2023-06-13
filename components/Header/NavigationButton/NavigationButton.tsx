@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { FC } from "react";
 
 interface Props {
   href: string;
@@ -7,13 +6,14 @@ interface Props {
   className?: string;
 }
 
-const NavigationButton: FC<Props> = ({ href, text, className = "" }) => {
+export default function NavigationButton({
+  href,
+  text,
+  className = "",
+}: Props) {
   return (
-    <div
-      className={`hover:text-indigo-500 dark:hover:text-indigo-300 ${className}`}>
-      <Link href={href}>{text}</Link>
-    </div>
+    <Link href={href} className={`hover:text-primary ${className}`}>
+      {text}
+    </Link>
   );
-};
-
-export default NavigationButton;
+}
