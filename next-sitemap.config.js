@@ -2,6 +2,7 @@
 const config = {
   siteUrl: "https://dklog.vercel.app",
   generateRobotsTxt: true,
+  generateIndexSitemap: false,
   transform: async (config, path) => {
     if (path.includes("tag")) {
       return null;

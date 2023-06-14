@@ -18,13 +18,13 @@ export default function Header() {
     if (/^\/posts\/[^\/]+$/.test(pathname)) {
       return "max-w-4xl";
     }
-    return "max-w-7xl";
+    return "max-w-6xl";
   }, [pathname]);
 
   return (
     <nav className="fixed top-0 left-0 backdrop-blur-sm bg-base-100/40 z-50 w-full h-14 flex justify-center items-center">
       <div
-        className={`flex flex-row justify-between items-center w-full h-full px-4 md:px-28 xl:px-0 transition-all ${maxWidth}`}>
+        className={`flex flex-row justify-between items-center w-full h-full px-4 xl:px-0 transition-all ${maxWidth}`}>
         <div className="flex items-center gap-2">
           <NavigationButton
             href="/"

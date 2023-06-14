@@ -26,7 +26,7 @@ export default function RootLayout({
         />
         <link rel="icon" type="image/gif" href={astronautImage} />
       </head>
-      <body className="py-20 px-4 md:px-28 max-w-7xl xl:px-0 mx-auto font-pretendard">
+      <body className="py-20 px-4 xl:px-0 max-w-6xl mx-auto font-pretendard">
         <ThemeProvider>
           <Header />
           {children}
