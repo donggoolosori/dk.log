@@ -9,7 +9,9 @@ const ThemeModeButton = () => {
 
   return (
     <label
-      className={`swap swap-rotate ${theme === "dark" ? "swap-active" : ""}`}>
+      className={`swap swap-rotate ${
+        theme === "dracula" ? "swap-active" : ""
+      }`}>
       {/* this hidden checkbox controls the state */}
       <input type="checkbox" onClick={toggleTheme} />
 

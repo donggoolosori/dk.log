@@ -2,9 +2,10 @@
 
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "dracula";
+type Theme = "light" | "dracula";
 
-const darkTheme: "dark" | "dracula" = "dracula";
+const lightTheme: Theme = "light";
+const darkTheme: Theme = "dracula";
 
 interface Context {
   theme: Theme;
@@ -12,29 +13,30 @@ interface Context {
 }
 
 export const ThemeContext = createContext<Context>({
-  theme: "light",
+  theme: lightTheme,
   toggleTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>(lightTheme);
 
   useEffect(() => {
-    setTheme(
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? darkTheme
-        : "light"
-    );
+    const preferTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? darkTheme
+      : lightTheme;
+    setTheme(preferTheme);
+    document.querySelector("html")?.setAttribute("data-theme", preferTheme);
   }, []);
 
   const toggleTheme = () => {
-    if (theme === "light") {
+    if (theme === lightTheme) {
       setTheme(darkTheme);
       document.querySelector("html")?.setAttribute("data-theme", darkTheme);
     } else {
-      setTheme("light");
+      setTheme(lightTheme);
       document.documentElement.classList.remove(darkTheme);
-      document.querySelector("html")?.setAttribute("data-theme", "light");
+      document.querySelector("html")?.setAttribute("data-theme", lightTheme);
     }
   };
 
