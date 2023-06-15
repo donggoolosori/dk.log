@@ -15,8 +15,8 @@ const ThemeModeButton = () => {
       {/* this hidden checkbox controls the state */}
       <input type="checkbox" onClick={toggleTheme} />
 
-      <HiSun className=" text-primary swap-on" size={28} />
-      <HiMoon className=" text-primary swap-off" size={28} />
+      <HiSun className="text-primary swap-on" size={28} />
+      <HiMoon className="text-primary swap-off" size={28} />
     </label>
   );
 };
