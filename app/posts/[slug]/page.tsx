@@ -49,7 +49,7 @@ export default async function PostPage({ params }: Props) {
           {title}
         </h1>
         <h2 style={{ fontSize: "1.5rem", margin: 0 }}>{date}</h2>
-        <div className="group relative w-full h-80 sm:h-[28rem] rounded-3xl my-16">
+        <div className="group relative w-full rounded-2xl my-16 overflow-hidden aspect-video">
           <PostImage blurCss={blurCss} coverImg={coverImg} priority />
         </div>
       </section>
